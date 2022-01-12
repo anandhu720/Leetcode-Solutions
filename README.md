@@ -38,3 +38,4 @@
 <h3 id="dp">Dynamic Programming</h3>
 
 * [Fibonacci Number](509-fibonacci-number)
+* [Climbing Stairs](70-climbing-stairs)
