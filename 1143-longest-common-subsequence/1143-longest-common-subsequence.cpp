@@ -2,7 +2,7 @@ class Solution {
 public:
     /**
     * @author Anandha Krishnan VK
-    * Time and Space = O(nm*min(m,n))
+    * Time and Space = O(nm)
     * Method - Dynamic Programming
     */
     
