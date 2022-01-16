@@ -3,6 +3,7 @@ public:
     /**
     * @author Anandha Krishnan VK
     * Time and Space = O(nm*min(m,n))
+    * Method - Dynamic Programming
     */
     
     int longestCommonSubsequence(string text1, string text2) {
