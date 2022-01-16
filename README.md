@@ -5,49 +5,8 @@
 
 <h2>Topics</h2>
 
-* [Array](#array)
-* [Linked List](#LL)
-* [Binary Tree](#binaryTree)
-* [Backtracking](#Bt)
+* [Array](array.md)
+* [Linked List](ll.md)
+* [Binary Tree](binaryTree.md)
+* [Backtracking](backtracking.md)
 * [Dynamic Programming](dp.md)
-
-<h3 id="array">Array</h3>
-
-* [Two Sum](1-two-sum)
-* [Best Time To Buy And Sell Stock](121-best-time-to-buy-and-sell-stock)
-* [Best Time To Buy And Sell Stock ii](121-best-time-to-buy-and-sell-stock-ii)
-* [Majority Element](169-majority-element)
-* [Majority Element ii](229-majority-element-ii)
-* [Sum Closest](3sum-closest)
-* [3 Sum](3sum)
-* [4 Sum](4sum)
-* [Maximum Subarray](53-maximum-subarray)
-* [Plus One](66-plus-one)
-* [Sort Colors](75-sort-colors)
-* [Container With Most Water](container-with-most-water)
-
-<h3 id="LL">Linked List</h3>
-
-* [Swap Nodes In Pairs](swap-nodes-in-pairs)
-* [Remove Nth Node From End Of List](remove-nth-node-from-end-of-list)
-
-<h3 id="binaryTree">Binary Tree</h3>
-
-* [Same Tree](100-same-tree)
-* [Symmetric Tree](101-symmetric-tree)  
-* [LevelOrder Traversel](102-binary-tree-level-order-traversal)  
-* [Zig-Zag Traversel](103-binary-tree-zigzag-level-order-traversal)
-* [Maximum Depth](104-maximum-depth-of-binary-tree)
-* [Inorder Traversel](94-binary-tree-inorder-traversal)
-* [Validate BST](98-validate-binary-search-tree)
-
-<h3 id="Bt">Backtracking</h3>
-
-* [Combination Sum ii](combination-sum-ii)
-
-<h3 id="dp">Dynamic Programming</h3>
-
-* [Fibonacci Number](509-fibonacci-number)
-* [Climbing Stairs](70-climbing-stairs)
-* [Min Cost Climbing Stairs](746-min-cost-climbing-stairs)
-* [Edit Distance](72-edit-distance)
