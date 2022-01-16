@@ -9,7 +9,7 @@
 * [Linked List](#LL)
 * [Binary Tree](#binaryTree)
 * [Backtracking](#Bt)
-* [Dynamic Programming](#dp)
+* [Dynamic Programming](dp.md)
 
 <h3 id="array">Array</h3>
 
