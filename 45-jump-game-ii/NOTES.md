@@ -1,6 +1,6 @@
 # Dynamic programming
-*Time = O(n^2) Space = O(n) *
-​
+<h3>Time = O(n^2) Space = O(n) </h3>
+
 ```
 class Solution {
 public:
