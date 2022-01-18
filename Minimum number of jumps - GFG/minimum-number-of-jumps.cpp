@@ -8,22 +8,11 @@ using namespace std;
 
 class Solution{
   public:
-    bool jumpGame(int arr[],int n){
-        if(n == 0) return false;
-        int mR = 0;
-        for(int i=0;i<n;i++){
-            if(mR < i) return false;
-            mR = max(mR,arr[i]+i);
-        }
-        return true;
-    }
     int minJumps(int arr[], int n){
         // Your code here
         
         if(n == 1) return 0;
-        
-        bool canReach = jumpGame(arr,n);
-        if(canReach == false) return -1;
+        if(arr[0] == 0) return -1;
         
         int maxJump = arr[0];
         int steps = arr[0];
@@ -33,6 +22,7 @@ class Solution{
             steps--;
             if(steps == 0){
                 jump++;
+                if(i >= maxJump) return -1;
                 steps = maxJump - i;
             }
         }
