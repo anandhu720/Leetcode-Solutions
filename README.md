@@ -5,8 +5,8 @@
 
 <h2>Topics</h2>
 
-* [Array](array.md)
-* [Linked List](ll.md)
-* [Binary Tree](binaryTree.md)
-* [Backtracking](backtracking.md)
-* [Dynamic Programming](dp.md)
+- [Array](Topics/array.md)
+- [Linked List](Topics/ll.md)
+- [Binary Tree](Topics/binaryTree.md)
+- [Backtracking](Topics/backtracking.md)
+- [Dynamic Programming](Topics/dp.md)
