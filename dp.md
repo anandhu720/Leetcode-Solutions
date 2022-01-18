@@ -8,4 +8,6 @@
 * [Longest Common Subsequence](1143-longest-common-subsequence)
 * [Jump Game](55-jump-game)
 * [Jump Game 2](45-jump-game-ii)
+* [Tapping Rain Water](42-trapping-rain-water)
+
 
