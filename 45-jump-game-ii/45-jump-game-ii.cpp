@@ -1,14 +1,25 @@
 class Solution {
 public:
+    /*
+    *   @author Anandha Krishnan
+    *   Greedy Approch
+    *   Time = O(n) Space = O(1)
+    */
     int jump(vector<int>& nums) {
-        vector<int> dp(nums.size(),10001);
-        dp[nums.size()-1] = 0;
-        for(int i=nums.size()-2;i>=0;i--){
-            for(int k=1;k<=nums[i];k++){
-                if(i+k < nums.size())
-                    dp[i] = min(dp[i],1+dp[i+k]);
+        if(nums.size() == 1) return 0;
+        
+        int maxJump = nums[0];
+        int steps = nums[0];
+        int jump = 1;
+        
+        for(int i=1;i<nums.size()-1;i++){
+            maxJump = max(maxJump,i+nums[i]);
+            steps--;
+            if(steps == 0){
+                jump++;
+                steps = maxJump - i;
             }
         }
-        return dp[0];
+        return jump;
     }
 };
