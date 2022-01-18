@@ -1,7 +1,7 @@
 
 <h1 id="array">Array</h1>
 
-* [Two Sum](Leetcode-Solutions/blob/main/1-two-sum)
+* [Two Sum](https://github.com/anandhu720/Leetcode-Solutions/blob/main/1-two-sum)
 * [Best Time To Buy And Sell Stock](121-best-time-to-buy-and-sell-stock)
 * [Best Time To Buy And Sell Stock ii](121-best-time-to-buy-and-sell-stock-ii)
 * [Majority Element](169-majority-element)
