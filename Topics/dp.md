@@ -9,6 +9,6 @@
 * [Jump Game](https://github.com/anandhu720/Leetcode-Solutions/blob/main/55-jump-game)
 * [Jump Game 2](https://github.com/anandhu720/Leetcode-Solutions/blob/main/45-jump-game-ii)
 * [Tapping Rain Water](https://github.com/anandhu720/Leetcode-Solutions/blob/main/42-trapping-rain-water)
-* [Maximum Sum](https://github.com/anandhu720/Leetcode-Solutions/blob/main/Maximum Sum Problem - GFG)
+* [Maximum Sum](https://github.com/anandhu720/Leetcode-Solutions/blob/main/Maximum%Sum%Problem%-%GFG)
 
 
