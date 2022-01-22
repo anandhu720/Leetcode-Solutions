@@ -11,7 +11,10 @@
 * [Tapping Rain Water](https://github.com/anandhu720/Leetcode-Solutions/blob/main/42-trapping-rain-water)
 * [Maximum Sum](https://github.com/anandhu720/Leetcode-Solutions/tree/main/Maximum%20Sum%20Problem%20-%20GFG)
 * [Unique Paths](https://github.com/anandhu720/Leetcode-Solutions/tree/main/62-unique-paths)
+* [Unique Paths 2](https://github.com/anandhu720/Leetcode-Solutions/tree/main/63-unique-paths-ii)
 * [Minimum Path Sum](https://github.com/anandhu720/Leetcode-Solutions/tree/main/64-minimum-path-sum)
+* [House Robber](https://github.com/anandhu720/Leetcode-Solutions/tree/main/198-house-robber)
+
 
 
 
