@@ -15,6 +15,8 @@
 * [Minimum Path Sum](https://github.com/anandhu720/Leetcode-Solutions/tree/main/64-minimum-path-sum)
 * [House Robber](https://github.com/anandhu720/Leetcode-Solutions/tree/main/198-house-robber)
 * [House Robber 2](https://github.com/anandhu720/Leetcode-Solutions/tree/main/213-house-robber-ii)
+* [0-1 Kanpsack Problem](https://github.com/anandhu720/Leetcode-Solutions/tree/main/0%-%1%Knapsack%Problem%-%GFG)
+1
 
 
 
