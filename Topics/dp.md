@@ -14,3 +14,4 @@
 - [Unique Paths](https://github.com/anandhu720/Leetcode-Solutions/blob/main/62-unique-paths)
 - [Unique Paths 2](https://github.com/anandhu720/Leetcode-Solutions/blob/main/63-unique-paths-ii)
 - [Minimum Paths Sum](https://github.com/anandhu720/Leetcode-Solutions/blob/main/64-minimum-path-sum)
+- [Palindromic Substrings](https://github.com/anandhu720/Leetcode-Solutions/blob/main/647-palindromic-substrings)
