@@ -13,3 +13,6 @@
 * [Plus One](https://github.com/anandhu720/Leetcode-Solutions/blob/main/66-plus-one)
 * [Sort Colors](https://github.com/anandhu720/Leetcode-Solutions/blob/main/75-sort-colors)
 * [Container With Most Water](https://github.com/anandhu720/Leetcode-Solutions/blob/main/container-with-most-water)
+* [Diagonal Traverse (Matrix)](https://github.com/anandhu720/Leetcode-Solutions/blob/main/498-diagonal-traverse)
+* [Diagonal Traverse 2 (Matrix)](https://github.com/anandhu720/Leetcode-Solutions/blob/main/1424-diagonal-traverse-ii)
+1
