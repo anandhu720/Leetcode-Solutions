@@ -16,4 +16,6 @@
 - [Minimum Paths Sum](https://github.com/anandhu720/Leetcode-Solutions/blob/main/64-minimum-path-sum)
 - [Palindromic Substrings](https://github.com/anandhu720/Leetcode-Solutions/blob/main/647-palindromic-substrings)
 - [Longest Palindromic Substring](https://github.com/anandhu720/Leetcode-Solutions/blob/main/5-longest-palindromic-substring)
+- [Nth Tribonacci Number](https://github.com/anandhu720/Leetcode-Solutions/blob/main/n-th-tribonacci-number)
+
 
