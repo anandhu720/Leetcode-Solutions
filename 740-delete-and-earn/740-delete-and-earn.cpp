@@ -2,7 +2,7 @@ class Solution {
 public:
     /** 
     *   @author : Anandha Krishnan
-    *   Time = O(nlogn) Space = O(1)
+    *   Time = O(nlogn) Space = O(n)
     */
     int deleteAndEarn(vector<int>& nums) {
         
