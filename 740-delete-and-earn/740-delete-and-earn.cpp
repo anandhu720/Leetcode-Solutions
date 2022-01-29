@@ -1,5 +1,9 @@
 class Solution {
 public:
+    /** 
+    *   @author : Anandha Krishnan
+    *   Time = O(nlogn) Space = O(1)
+    */
     int deleteAndEarn(vector<int>& nums) {
         
         //storing values in map
