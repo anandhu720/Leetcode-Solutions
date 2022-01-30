@@ -18,6 +18,8 @@
 - [Longest Palindromic Substring](https://github.com/anandhu720/Leetcode-Solutions/blob/main/5-longest-palindromic-substring)
 - [Nth Tribonacci Number](https://github.com/anandhu720/Leetcode-Solutions/blob/main/n-th-tribonacci-number)
 - [Delete And Earn](https://github.com/anandhu720/Leetcode-Solutions/blob/main/740-delete-and-earn)
+- [Predict The Winner](https://github.com/anandhu720/Leetcode-Solutions/blob/main/486-predict-the-winner)
+
 
 
 
