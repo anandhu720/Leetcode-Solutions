@@ -17,6 +17,7 @@
 * [Diagonal Traverse 2 (Matrix)](https://github.com/anandhu720/Leetcode-Solutions/blob/main/1424-diagonal-traverse-ii)
 * [Island Perimeter](https://github.com/anandhu720/Leetcode-Solutions/blob/main/463-island-perimeter)
 * [Summary Ranges](https://github.com/anandhu720/Leetcode-Solutions/blob/main/228-summary-ranges)
+* [Richest Customer Wealth](https://github.com/anandhu720/Leetcode-Solutions/blob/main/1672-richest-customer-wealth)
 
 
 
