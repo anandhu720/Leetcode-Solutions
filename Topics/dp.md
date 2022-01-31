@@ -19,6 +19,8 @@
 - [Nth Tribonacci Number](https://github.com/anandhu720/Leetcode-Solutions/blob/main/n-th-tribonacci-number)
 - [Delete And Earn](https://github.com/anandhu720/Leetcode-Solutions/blob/main/740-delete-and-earn)
 - [Predict The Winner](https://github.com/anandhu720/Leetcode-Solutions/blob/main/486-predict-the-winner)
+- [Maximum Score From Performing Multiplication Operations](https://github.com/anandhu720/Leetcode-Solutions/blob/main/1770-maximum-score-from-performing-multiplication-operations)
+
 
 
 
