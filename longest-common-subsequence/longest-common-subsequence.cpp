@@ -8,7 +8,6 @@ public:
     
     int longestCommonSubsequence(string text1, string text2) {
         vector<vector<int>> dp(text2.length()+1,vector<int>(text1.length()+1,0));
-        // int dp[text2.length()+1][text1.length()+1];
         
         for(int i=1;i<text2.length()+1;i++){
             for(int j=1;j<text1.length()+1;j++){
