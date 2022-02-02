@@ -6,6 +6,7 @@
 <h1>Topics</h1>
 
 - [Array](Topics/array.md)
+- [String](Topics/string.md)
 - [Linked List](Topics/ll.md)
 - [Binary Tree](Topics/binaryTree.md)
 - [Backtracking](Topics/backtracking.md)
