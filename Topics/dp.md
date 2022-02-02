@@ -22,6 +22,7 @@
 - [Maximum Score From Performing Multiplication Operations](https://github.com/anandhu720/Leetcode-Solutions/blob/main/1770-maximum-score-from-performing-multiplication-operations)
 - [Maximal Square](https://github.com/anandhu720/Leetcode-Solutions/blob/main/221-maximal-square)
 - [Coin change](https://github.com/anandhu720/Leetcode-Solutions/blob/main/322-coin-change)
+- [Word Break](https://github.com/anandhu720/Leetcode-Solutions/blob/main/139-word-break)
 
 
 
