@@ -22,4 +22,5 @@
 
 ```diff
 - This Repo is still under-work.So full contents are not available now
+- It takes time to upload all question answer to this repo,So many questions are on the way
 ```
