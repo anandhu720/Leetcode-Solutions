@@ -12,7 +12,7 @@
 - [Backtracking](Topics/backtracking.md)
 - [Dynamic Programming](Topics/dp.md)
 
-<br><br><br>
+<br>
 
 <h1>Leetcode Monthly Challenge</h1>
 
