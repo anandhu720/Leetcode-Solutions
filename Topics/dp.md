@@ -24,3 +24,4 @@
 - [Coin change](https://github.com/anandhu720/Leetcode-Solutions/blob/main/322-coin-change)
 - [Word Break](https://github.com/anandhu720/Leetcode-Solutions/blob/main/139-word-break)
 - [Longest Increasing Subsequence](https://github.com/anandhu720/Leetcode-Solutions/blob/main/300-longest-increasing-subsequence)
+- [Burst Balloons](https://github.com/anandhu720/Leetcode-Solutions/blob/main/312-burst-balloons)
