@@ -19,6 +19,8 @@
 * [Island Perimeter](https://github.com/anandhu720/Leetcode-Solutions/blob/main/463-island-perimeter)
 * [Summary Ranges](https://github.com/anandhu720/Leetcode-Solutions/blob/main/228-summary-ranges)
 * [Richest Customer Wealth](https://github.com/anandhu720/Leetcode-Solutions/blob/main/1672-richest-customer-wealth)
+* [Contiguous Array](https://github.com/anandhu720/Leetcode-Solutions/blob/main/525-contiguous-array)
+
 
 
 
