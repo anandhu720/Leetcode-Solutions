@@ -1,5 +1,8 @@
 class Solution {
 public:
+    /*
+    * Time = O(n*n*n) Space = O(n)
+    */
     int maxCoins(vector<int>& nums) {
         int n = nums.size()+2;
         
@@ -14,7 +17,7 @@ public:
            for(int start=1;start<n-len;start++){
                int end = start+len-1; //ending and starting point of sliding window
                for(int k=start;k<=end;k++){ //taking one by obe element in sliding window
-                   dp[start][end] = max(dp[start][end],dp[start][k-1]+arr[k]*arr[start-1]*arr[end+1]+dp[k+1][end]);
+                   dp[start][end] = max(dp[start][end],dp[start][k-1]+arr[k]*arr[start-                                                   1]*arr[end+1]+dp[k+1][end]);
                }
            } 
         }
