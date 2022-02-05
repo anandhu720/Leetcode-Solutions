@@ -5,3 +5,4 @@
 - [Add binary](https://github.com/anandhu720/Leetcode-Solutions/tree/main/67-add-binary)
 - [Detect Capital](https://github.com/anandhu720/Leetcode-Solutions/tree/main/520-detect-capital)
 - [ZigZag Conversion](https://github.com/anandhu720/Leetcode-Solutions/tree/main/6-zigzag-conversion)
+- [Longest Common Prefix](https://github.com/anandhu720/Leetcode-Solutions/tree/main/14-longest-common-prefix)
