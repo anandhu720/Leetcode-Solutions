@@ -1,19 +1,11 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        map<int,int> hash;
-        for(auto it : nums) hash[it]++;
-        
         int i=0;
-        for(auto it : hash){
-            if(it.second == 1){
-                nums[i++] = it.first;
-            }else{
-                nums[i++] = it.first;
-                nums[i++] = it.first;
-            }
+        for(auto n : nums){
+            if(i < 2 || n > nums[i-2])
+                nums[i++] = n;
         }
-        
         return i;
     }
 };
