@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //memization - Time = O(n*m) n = s.length(), m = p.length()
     bool dfs(int i,int j,string &s,string &p,map<pair<int,int>,bool> &cache){
         
         if(cache[{i,j}]) return cache[{i,j}];
