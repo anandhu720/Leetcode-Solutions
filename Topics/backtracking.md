@@ -5,3 +5,4 @@
 * [Generate Parentheses](https://github.com/anandhu720/Leetcode-Solutions/tree/main/22-generate-parentheses)
 * [Permutations](https://github.com/anandhu720/Leetcode-Solutions/tree/main/46-permutations)
 * [Permutations II](https://github.com/anandhu720/Leetcode-Solutions/tree/main/47-permutations-ii)
+* [Permutation Sequence](https://github.com/anandhu720/Leetcode-Solutions/tree/main/60-permutation-sequence)
