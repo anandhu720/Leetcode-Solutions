@@ -8,3 +8,4 @@
 * [Maximum Depth](https://github.com/anandhu720/Leetcode-Solutions/blob/main/104-maximum-depth-of-binary-tree)
 * [Inorder Traversel](https://github.com/anandhu720/Leetcode-Solutions/blob/main/94-binary-tree-inorder-traversal)
 * [Validate BST](https://github.com/anandhu720/Leetcode-Solutions/blob/main/98-validate-binary-search-tree)
+* [Covert Aorted Array To BST](https://github.com/anandhu720/Leetcode-Solutions/tree/main/108-convert-sorted-array-to-binary-search-tree)
