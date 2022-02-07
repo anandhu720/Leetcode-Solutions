@@ -1,13 +1,17 @@
 class Solution {
 public:
+    // Using Ascii values
     char findTheDifference(string s, string t) {
-        unordered_map<int,int> map;
-        for(auto i : s) map[i]++;
-        for(int i=0;i<t.length();i++){
-            if(map.find(t[i]) == map.end()) return t[i];
-            map[t[i]]--;
-            if(map[t[i]] == 0) map.erase(t[i]);
+        int s1 = 0;
+        for(int i=0;i<s.length();i++){
+            s1 += (int)s[i];
         }
-        return '-1';
+        int t1 = 0;
+        for(int i=0;i<t.length();i++){
+            t1 += (int)t[i];
+        }
+        
+        int diff = abs(t1 - s1);
+        return (char)diff;
     }
 };
