@@ -1,5 +1,8 @@
 class Solution {
 public:
+    /*
+    * Time = O(n*n) Space = O(n)
+    */
     string getPermutation(int n, int k) {
         int fact = 1;
         vector<int> nums;
