@@ -3,3 +3,5 @@
 
 * [Combination Sum ii](https://github.com/anandhu720/Leetcode-Solutions/blob/main/combination-sum-ii)
 * [Generate Parentheses](https://github.com/anandhu720/Leetcode-Solutions/tree/main/22-generate-parentheses)
+* [Permutations](https://github.com/anandhu720/Leetcode-Solutions/tree/main/46-permutations)
+* [Permutations II](https://github.com/anandhu720/Leetcode-Solutions/tree/main/47-permutations-ii)
