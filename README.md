@@ -9,6 +9,7 @@
 - [String](Topics/string.md)
 - [Linked List](Topics/ll.md)
 - [Binary Tree](Topics/binaryTree.md)
+- [Binary Search](Topics/binarySearch.md)
 - [Backtracking](Topics/backtracking.md)
 - [Dynamic Programming](Topics/dp.md)
 
