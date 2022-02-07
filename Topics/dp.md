@@ -26,3 +26,4 @@
 - [Longest Increasing Subsequence](https://github.com/anandhu720/Leetcode-Solutions/blob/main/300-longest-increasing-subsequence)
 - [Burst Balloons](https://github.com/anandhu720/Leetcode-Solutions/blob/main/312-burst-balloons)
 - [Regular Expression Matching](https://github.com/anandhu720/Leetcode-Solutions/tree/main/10-regular-expression-matching)
+- [Min Cost Climbing Stairs](https://github.com/anandhu720/Leetcode-Solutions/tree/main/746-min-cost-climbing-stairs)
