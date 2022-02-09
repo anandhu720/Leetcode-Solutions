@@ -17,6 +17,7 @@ public:
             steps--;
             if(steps == 0){
                 jump++;
+                if(i >= maxJump) return -1; //if we cannot reach last index case (added for extra)
                 steps = maxJump - i;
             }
         }
