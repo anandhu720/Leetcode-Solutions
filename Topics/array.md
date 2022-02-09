@@ -24,3 +24,4 @@
 * [Median Of Two Sorted Arrays](https://github.com/anandhu720/Leetcode-Solutions/tree/main/4-median-of-two-sorted-arrays)
 * [Design Bitset](https://github.com/anandhu720/Leetcode-Solutions/tree/main/2166-design-bitset)
 * [Remove Duplicates from Sorted Array II](https://github.com/anandhu720/Leetcode-Solutions/tree/main/80-remove-duplicates-from-sorted-array-ii)
+* [K - Diff Pairs](https://github.com/anandhu720/Leetcode-Solutions/tree/main/532-k-diff-pairs-in-an-array)
