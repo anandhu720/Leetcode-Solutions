@@ -9,3 +9,4 @@
 - [Day 7 - Find the Difference](https://github.com/anandhu720/Leetcode-Solutions/tree/main/389-find-the-difference)
 - [Day 8 - Add Digits](https://github.com/anandhu720/Leetcode-Solutions/tree/main/258-add-digits)
 - [Day 9 - K - Diff Pairs](https://github.com/anandhu720/Leetcode-Solutions/tree/main/532-k-diff-pairs-in-an-array)
+- [Day 10 - Subarray Sum Equals K](https://github.com/anandhu720/Leetcode-Solutions/tree/main/560-subarray-sum-equals-k)
