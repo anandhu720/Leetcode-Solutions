@@ -19,6 +19,12 @@
 
 - [February Challenge 2022](Challenges/feb22.md)
 
+<br>
+
+<h1>Leetcode Contests</h1>
+
+- [Weekly Contest 279](Contest/weekly279.md)
+
 <br><br><br>
 
 ```diff
