@@ -28,3 +28,4 @@
 - [Regular Expression Matching](https://github.com/anandhu720/Leetcode-Solutions/tree/main/10-regular-expression-matching)
 - [Min Cost Climbing Stairs](https://github.com/anandhu720/Leetcode-Solutions/tree/main/746-min-cost-climbing-stairs)
 - [Minimum Time To Remove All Cars Containing Illegal Goods](https://github.com/anandhu720/Leetcode-Solutions/tree/main/2167-minimum-time-to-remove-all-cars-containing-illegal-goods)
+- [Maximum Subarray](https://github.com/anandhu720/Leetcode-Solutions/tree/main/53-maximum-subarray)
