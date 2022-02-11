@@ -9,3 +9,4 @@
 - [Is Subsequence](https://github.com/anandhu720/Leetcode-Solutions/tree/main/392-is-subsequence)
 - [Find the Difference](https://github.com/anandhu720/Leetcode-Solutions/tree/main/389-find-the-difference)
 - [Number Of Strings As Substring](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1967-number-of-strings-that-appear-as-substrings-in-word)
+- [Permutation In String](https://github.com/anandhu720/Leetcode-Solutions/tree/main/567-permutation-in-string)
