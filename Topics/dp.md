@@ -30,3 +30,4 @@
 - [Minimum Time To Remove All Cars Containing Illegal Goods](https://github.com/anandhu720/Leetcode-Solutions/tree/main/2167-minimum-time-to-remove-all-cars-containing-illegal-goods)
 - [Maximum Subarray](https://github.com/anandhu720/Leetcode-Solutions/tree/main/53-maximum-subarray)
 - [Maximum Product Subarray](https://github.com/anandhu720/Leetcode-Solutions/tree/main/152-maximum-product-subarray)
+- [Best Sightseeing Pair](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1014-best-sightseeing-pair)
