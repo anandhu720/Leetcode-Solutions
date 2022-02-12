@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //Time = O(n*m*w) n = length of word, m = string comp , w = no of words
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
         bool isPresent = false;
         unordered_set<string> myset;
