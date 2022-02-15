@@ -28,3 +28,4 @@
 * [Subarray Sum Equals K](https://github.com/anandhu720/Leetcode-Solutions/tree/main/560-subarray-sum-equals-k)
 * [Max Length of Subarray With Posative Product](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1567-maximum-length-of-subarray-with-positive-product)
 * [Minimum Absolute Difference](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1200-minimum-absolute-difference)
+* [Single Number](https://github.com/anandhu720/Leetcode-Solutions/tree/main/136-single-number)
