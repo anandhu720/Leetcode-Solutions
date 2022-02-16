@@ -5,3 +5,4 @@
 * [Sort List](https://github.com/anandhu720/Leetcode-Solutions/blob/main/148-sort-list)
 * [Merge K sorted Lists](https://github.com/anandhu720/Leetcode-Solutions/tree/main/23-merge-k-sorted-lists)
 * [Reverse Nodes In K Group](https://github.com/anandhu720/Leetcode-Solutions/tree/main/25-reverse-nodes-in-k-group)
+* [Swap Nodes In Pairs](https://github.com/anandhu720/Leetcode-Solutions/tree/main/24-swap-nodes-in-pairs)
