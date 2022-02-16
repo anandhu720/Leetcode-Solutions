@@ -36,3 +36,4 @@
 - [Arithmetic Slices](https://github.com/anandhu720/Leetcode-Solutions/tree/main/413-arithmetic-slices)
 - [Decode Ways](https://github.com/anandhu720/Leetcode-Solutions/tree/main/91-decode-ways)
 - [Triangle](https://github.com/anandhu720/Leetcode-Solutions/tree/main/120-triangle)
+- [Minimum Falling Path Sum](https://github.com/anandhu720/Leetcode-Solutions/tree/main/931-minimum-falling-path-sum)
