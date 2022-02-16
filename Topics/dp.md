@@ -35,3 +35,4 @@
 - [Best Time To Buy And Sell Stock With Transaction Fee](https://github.com/anandhu720/Leetcode-Solutions/tree/main/714-best-time-to-buy-and-sell-stock-with-transaction-fee)
 - [Arithmetic Slices](https://github.com/anandhu720/Leetcode-Solutions/tree/main/413-arithmetic-slices)
 - [Decode Ways](https://github.com/anandhu720/Leetcode-Solutions/tree/main/91-decode-ways)
+- [Triangle](https://github.com/anandhu720/Leetcode-Solutions/tree/main/120-triangle)
