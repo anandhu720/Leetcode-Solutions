@@ -38,3 +38,4 @@
 - [Triangle](https://github.com/anandhu720/Leetcode-Solutions/tree/main/120-triangle)
 - [Minimum Falling Path Sum](https://github.com/anandhu720/Leetcode-Solutions/tree/main/931-minimum-falling-path-sum)
 - [Minimum Falling Path Sum II](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1289-minimum-falling-path-sum-ii)
+- [Pascal's Triangle](https://github.com/anandhu720/Leetcode-Solutions/tree/main/118-pascals-triangle)
