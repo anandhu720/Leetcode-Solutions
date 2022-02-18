@@ -7,11 +7,9 @@ public:
         
         for(auto& num: nums) sum += num;
         if(sum % 2 == 1) return false;
-        else {
-            int target = sum/2;
-            dp.resize(target+1, vector<int>(n+1, -1));
-            return checkIfTargetSumExists(nums, target, n-1);
-        }
+        int target = sum/2;
+        dp.resize(target+1, vector<int>(n+1, -1));
+        return checkIfTargetSumExists(nums, target, n-1);
     }
     
     bool checkIfTargetSumExists(vector<int>& nums, int target, int index){
