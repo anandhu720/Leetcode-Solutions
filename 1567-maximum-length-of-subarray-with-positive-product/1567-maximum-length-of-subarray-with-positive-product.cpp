@@ -12,9 +12,7 @@ public:
                     negative += 1;
             }else if(num < 0){
                 if(negative > 0){
-                    int temp = posative+1;
-                    posative = negative+1;
-                    negative = temp;
+                    swap(++negative,++posative);
                 }else{
                     negative = posative+1;
                     posative = 0;
