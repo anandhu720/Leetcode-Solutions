@@ -17,3 +17,4 @@
 - [Day 15 - Single Number](https://github.com/anandhu720/Leetcode-Solutions/tree/main/136-single-number)
 - [Day 16 - Swap Nodes In Pairs](https://github.com/anandhu720/Leetcode-Solutions/tree/main/24-swap-nodes-in-pairs)
 - [Day 17 - Combination Sum](https://github.com/anandhu720/Leetcode-Solutions/tree/main/39-combination-sum)
+- [Day 18 - Remove K Digits](https://github.com/anandhu720/Leetcode-Solutions/tree/main/402-remove-k-digits)
