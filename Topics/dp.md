@@ -40,3 +40,4 @@
 - [Minimum Falling Path Sum II](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1289-minimum-falling-path-sum-ii)
 - [Pascal's Triangle](https://github.com/anandhu720/Leetcode-Solutions/tree/main/118-pascals-triangle)
 - [Pascal's Triangle II](https://github.com/anandhu720/Leetcode-Solutions/tree/main/119-pascals-triangle-ii)
+- [Partition Equal Subset Sum](https://github.com/anandhu720/Leetcode-Solutions/tree/main/416-partition-equal-subset-sum)
