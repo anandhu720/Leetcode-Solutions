@@ -29,4 +29,5 @@
 * [Max Length of Subarray With Posative Product](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1567-maximum-length-of-subarray-with-positive-product)
 * [Minimum Absolute Difference](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1200-minimum-absolute-difference)
 * [Single Number](https://github.com/anandhu720/Leetcode-Solutions/tree/main/136-single-number)
-* [Minimize Dviation In Array](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1675-minimize-deviation-in-array)
+* [Minimize Deviation In Array](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1675-minimize-deviation-in-array)
+* [Remove Covered Intervals](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1288-remove-covered-intervals)
