@@ -19,4 +19,4 @@
 - [Day 17 - Combination Sum](https://github.com/anandhu720/Leetcode-Solutions/tree/main/39-combination-sum)
 - [Day 18 - Remove K Digits](https://github.com/anandhu720/Leetcode-Solutions/tree/main/402-remove-k-digits)
 - [Day 19 - Minimize Deviation In Array](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1675-minimize-deviation-in-array)
-- [Dat 20 - Remove Covered Intervals](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1288-remove-covered-intervals)
+- [Day 20 - Remove Covered Intervals](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1288-remove-covered-intervals)
