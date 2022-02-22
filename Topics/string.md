@@ -13,3 +13,4 @@
 - [Word Ladder](https://github.com/anandhu720/Leetcode-Solutions/tree/main/127-word-ladder)
 - [Word Ladder II](https://github.com/anandhu720/Leetcode-Solutions/tree/main/126-word-ladder-ii)
 - [Remove K Digits](https://github.com/anandhu720/Leetcode-Solutions/tree/main/402-remove-k-digits)
+- [Excel Sheet Column Number](https://github.com/anandhu720/Leetcode-Solutions/tree/main/171-excel-sheet-column-number)
