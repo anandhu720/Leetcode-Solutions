@@ -20,9 +20,7 @@ public:
     }
     
     int mincostTickets(vector<int>& days, vector<int>& costs) {
-        sort(days.begin(), days.end());
         vector<int> dp(370, -1);
-        int maxi = days[days.size()-1];
         return helper(0, days, costs, dp);
     }
 };
