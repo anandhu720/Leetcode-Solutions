@@ -44,3 +44,4 @@
 - [Combination Sum IV](https://github.com/anandhu720/Leetcode-Solutions/tree/main/377-combination-sum-iv)
 - [Longest Palindromic Subsequence](https://github.com/anandhu720/Leetcode-Solutions/tree/main/516-longest-palindromic-subsequence)
 - [Unique Binary Search Tree](https://github.com/anandhu720/Leetcode-Solutions/tree/main/96-unique-binary-search-trees)
+- [Longest Valid Parentheses](https://github.com/anandhu720/Leetcode-Solutions/tree/main/32-longest-valid-parentheses)
