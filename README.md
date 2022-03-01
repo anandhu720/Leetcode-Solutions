@@ -18,6 +18,8 @@
 <h1>Leetcode Monthly Challenge</h1>
 
 - [February Challenge 2022](Challenges/feb22.md)
+- [March Challenge 2022](Challenges/mar22.md)
+
 
 <br>
 
