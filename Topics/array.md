@@ -34,3 +34,4 @@
 * [Largest Perimeter Triangle](https://github.com/anandhu720/Leetcode-Solutions/tree/main/976-largest-perimeter-triangle)
 * [Find Nearest Point that has the Same X or Y Coordinate](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1779-find-nearest-point-that-has-the-same-x-or-y-coordinate)
 * [Sign of the Product of an Array](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1822-sign-of-the-product-of-an-array)
+* [Happy Number](https://github.com/anandhu720/Leetcode-Solutions/tree/e0189fb0dfae7c356d6db65767e10a150303309d/202-happy-number)
