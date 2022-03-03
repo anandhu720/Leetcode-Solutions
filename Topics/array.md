@@ -33,3 +33,4 @@
 * [Remove Covered Intervals](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1288-remove-covered-intervals)
 * [Largest Perimeter Triangle](https://github.com/anandhu720/Leetcode-Solutions/tree/main/976-largest-perimeter-triangle)
 * [Find Nearest Point that has the Same X or Y Coordinate](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1779-find-nearest-point-that-has-the-same-x-or-y-coordinate)
+* [Sign of the Product of an Array](https://github.com/anandhu720/Leetcode-Solutions/tree/main/1822-sign-of-the-product-of-an-array)
