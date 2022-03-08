@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //Time = O(n*m)
     int maximumWealth(vector<vector<int>>& nums) {
         int mostAmount = INT_MIN;
         for(int i=0;i<nums.size();i++){
