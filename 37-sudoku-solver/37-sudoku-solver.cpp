@@ -1,79 +1,43 @@
 class Solution {
 public:
     void solveSudoku(vector<vector<char>>& board) {
-        vector<vector<char>> temp;
-        map<int,set<char>> row,col;
-        map<pair<int,int>,set<char>> sq;
-        
-        saver(board,row,col,sq);
-        
-        dfs(board,row,col,sq,temp);
-        
-        for(int i=0;i<board.size();i++){
-            for(int j=0;j<board[i].size();j++){
-                board[i][j] = temp[i][j];
-            }
-        }
-        
+        solve(board);
     }
-    
-    void saver(vector<vector<char>> &mat,map<int,set<char>> &row,map<int,set<char>>            &col,map<pair<int,int>,set<char>> &sq) {
+    bool solve(vector<vector<char>> &mat) {
         
-        for(int r=0;r<mat.size();r++){
-            for(int c=0;c<mat[r].size();c++){
-                if(mat[r][c] == '.') continue;
+        for(int r=0;r<mat.size();r++) {
+            for(int c=0;c<mat[r].size();c++) {
                 
-                row[r].insert(mat[r][c]);
-                col[c].insert(mat[r][c]);
-                sq[{r/3,c/3}].insert(mat[r][c]);
-            }
-        }
-    }
-    
-        void dfs(vector<vector<char>> &mat,map<int,set<char>> &row,map<int,set<char>>            &col,map<pair<int,int>,set<char>> &sq,vector<vector<char>> &temp) {
-            
-            for(int r=0;r<mat.size();r++) {
-                for(int c=0;c<mat.size();c++) {
+                if(mat[r][c] == '.') {
                     
-                    if(r == 8 and c == 8){
-                        temp = mat;
-                    }
-                    
-                    if(mat[r][c] != '.') continue;
-                    
-                    
-                    for(char it='1';it<='9';it++){
-                        if(
-                            row[r].find(it) == row[r].end() and
-                            col[c].find(it) == col[c].end() and
-                            sq[{r/3,c/3}].find(it) == sq[{r/3,c/3}].end()
-                        ){
-                                                     
-                            // cout<<it<<" "<<r<<" "<<c<<endl;
+                    for(char i = '1';i<='9';i++) {
+                        if(isValid(r,c,i,mat)) {
+                            mat[r][c] = i;
                             
-                            row[r].insert(it);
-                            col[c].insert(it);
-                            sq[{r/3,c/3}].insert(it);
-                            
-                            mat[r][c] = it;
-                            
-                            dfs(mat,row,col,sq,temp);
-                            
+                            if(solve(mat) == true) return true;
                             
                             mat[r][c] = '.';
-                            
-                            row[r].erase(it);
-                            col[c].erase(it);
-                            sq[{r/3,c/3}].erase(it);
-                            
                         }
                     }
-                    if(mat[r][c] == '.') return;
+                    
+                    return false;
+                    
                 }
+                
             }
-            
-            return;
-            
         }
+        
+        return true;
+    }
     
+    bool isValid(int r,int c,char i,vector<vector<char>> &mat) {
+        for(int x=0;x<9;x++) {
+            
+            if(mat[r][x] == i) return false;
+            if(mat[x][c] == i) return false;
+            if(mat[3 * (r/3) + x/3][3 * (c/3) + x%3] == i) return false;
+        }
+        
+        return true;
+    }
 };
