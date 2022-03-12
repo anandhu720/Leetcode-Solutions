@@ -1,16 +1,27 @@
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
-        unordered_map<int,bool> umap;
-        for(auto it : nums) umap[it] = true;
-        
-        int i = 1;
-        while(true) {
-            if(umap.find(i) == umap.end())
-                return i;
-            i++;
+        //making all negative values equal to 0
+        for(int i=0;i<nums.size();i++) {
+            if(nums[i] < 0) nums[i] = 0;
         }
         
-        return 0;
+        //using the array itself as hash map
+        for(int i=0;i<nums.size();i++) {
+            
+            int value = abs(nums[i]);
+            if(value > nums.size() or value < 1) continue;
+            if(nums[value - 1] > 0) nums[value - 1] *= -1;
+            else if(nums[value - 1] == 0)
+                nums[value - 1] = -1 * (nums.size() + 1);
+        }
+        
+        for(int i=1;i<=nums.size();i++) {
+            if(nums[i-1] >= 0) return i;
+        }
+        
+        return nums.size()+1;
+        
+        
     }
 };
