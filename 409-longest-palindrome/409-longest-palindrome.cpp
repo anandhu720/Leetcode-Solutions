@@ -8,22 +8,9 @@ public:
         int len = 0;
         
         for(auto it : umap) {
-            if(it.second % 2 == 0) {
-                len += it.second;
-                umap[it.first] = 0;
-            }else if(it.second > 2) {
-                len += it.second-1;
-                it.second = 1;
-            }
+            len += it.second/2;
         }
         
-        for(auto it : umap) {
-            if(it.second > 0) {
-                len++;
-                break;
-            }
-        }
-        
-        return len;
+        return 2*len+1 < s.length() ? 2*len+1 : s.length();
     }
 };
