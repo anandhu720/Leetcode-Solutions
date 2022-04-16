@@ -11,31 +11,18 @@
  */
 class Solution {
 public:
-    void pre(TreeNode *root,unordered_set<int> &uset) {
-        if(root) {
-            uset.insert(root->val);
-            pre(root->left,uset);
-            pre(root->right,uset);
-        }
-    }
-    
-    void make(TreeNode *root,unordered_set<int> &uset) {
-        if(root) {
-            int val = root->val;
-            for(auto it : uset) {
-                if(it > val) root->val += it;
-            }
-            make(root->left,uset);
-            make(root->right,uset);
-        }
-    }
-    
     TreeNode* convertBST(TreeNode* root) {
-        unordered_set<int> uset;
-        pre(root,uset);
-        
-        make(root,uset);
-        
+        int prevValue = 0;
+        dfs(root,prevValue);
         return root;
+    }
+    
+    void dfs(TreeNode *root,int &prev) {
+        if(root) {
+            dfs(root->right,prev);
+            root->val += prev;
+            prev = root->val;
+            dfs(root->left,prev);
+        }
     }
 };
