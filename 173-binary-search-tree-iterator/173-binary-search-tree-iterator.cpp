@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+//Time O(1) Space O(H)
 class BSTIterator {
 public:
     stack<TreeNode *> st;
