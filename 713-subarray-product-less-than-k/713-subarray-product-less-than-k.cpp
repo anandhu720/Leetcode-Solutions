@@ -5,15 +5,14 @@ public:
         if(k == 0 || k == 1) return ans;
         
         int product = 1;
-        int length = 0;
+        int l = 0;
         for(int r=0;r<nums.size();r++) {
             product *= nums[r];
             while(product >= k) {
-                product /= nums[r - length];
-                length--;
+                product /= nums[l];
+                l++;
             }
-            length++;
-            ans += length;
+            ans += (r-l+1);
         }
         
         return ans;
