@@ -1,39 +1,50 @@
 class Solution {
 public:
-    vector<int> diffWaysToCompute(string expression) {
-        vector<int> answer;
+    vector<int> diffWaysToCompute(string s) {
+        unordered_map<string,vector<int>> umap;
+        return dfs(s,umap);
         
-        for(int i=0;i<expression.length();i++) {
-            
-            char c = expression[i];
-            
-            if(expression[i] == '-' or expression[i] == '+' or expression[i] == '*') {
+    }
+    
+    vector<int> dfs(string s,unordered_map<string,vector<int>> &umap) {
+        vector<int> ans;
         
-                string left = expression.substr(0,i);
-                string right = expression.substr(i+1);
+        if(umap.find(s) != umap.end()) return umap[s];
+        
+        for(int i=0;i<s.length();i++) {
+            
+            if(s[i] == '-' or s[i] == '+' or s[i] == '*') {
                 
-                vector<int> al = diffWaysToCompute(left);
-                vector<int> bl = diffWaysToCompute(right);
-                                    
-                for(int x : al) {
-                    for(int y : bl) {
+                vector<int> left = dfs(s.substr(0,i),umap);
+                vector<int> right = dfs(s.substr(i+1),umap);
+                
+                for(int x : left) {
+                    for(int y : right) {
                         
-                        if(c == '-') {
-                            answer.push_back(x-y);
-                        }else if(c == '+') {
-                            answer.push_back(x+y);
-                        }else if(c == '*') {
-                            answer.push_back(x*y);
+                        switch(s[i]) {
+                            case '-':
+                                ans.push_back(x - y);
+                                break;
+                            case '+':
+                                ans.push_back(x + y);
+                                break;
+                            case '*':
+                                ans.push_back(x * y);
+                                break;
                         }
                         
                     }
                 }
                 
             }
+            
         }
         
-        if(answer.size() == 0)
-            answer.push_back(stoi(expression)); 
-        return answer;
+        if(ans.size() == 0) {
+            ans.push_back(stoi(s));
+        }
+        
+        umap[s] = ans;
+        return ans;
     }
 };
