@@ -18,8 +18,7 @@ public:
         }
         
         
-        for(int i=index;i<n;i++) {
-            if(i > 9) break;
+        for(int i=index;i<=9;i++) {
             temp.push_back(i);
             dfs(i+1,target - i,k-1,n,ans,temp);
             temp.pop_back();
