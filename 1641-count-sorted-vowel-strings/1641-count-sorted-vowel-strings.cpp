@@ -1,5 +1,6 @@
 class Solution {
 public:
+    int dp[50] = {-1};
     int countVowelStrings(int n) {
         vector<char> vowels = {'a','e','i','o','u'};
         return dfs(0,n,vowels);
@@ -11,11 +12,13 @@ public:
             return 1;
         }
         
+        if(dp[index] != -1) dp[index];
+        
         int count = 0;
         for(int i=index;i<vowels.size();i++) {
             count += dfs(i,n-1,vowels);
         }
         
-        return count;
+        return dp[index] = count;
     }
 };
