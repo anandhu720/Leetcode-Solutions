@@ -22,31 +22,26 @@
 class Solution {
 public:
     TreeNode* sortedListToBST(ListNode* head) {
-        vector<int> arr;
+        if(!head) return NULL;
+        if(!head->next) return new TreeNode(head->val);
         
-        while(head) {
-            arr.push_back(head->val);
-            head = head->next;
+        ListNode *fast = head;
+        ListNode *slow = head;
+        ListNode *temp = head;
+        while(fast and fast->next) {
+            temp = slow;
+            fast = fast->next->next;
+            slow = slow->next;
         }
         
-        TreeNode *root = dfs(0,arr.size()-1,arr);
+        temp->next = NULL;
+        TreeNode *root = new TreeNode(slow->val);
+        root->left = sortedListToBST(head);
+        root->right = sortedListToBST(slow->next);
         
         return root;
         
-    }
-    
-    TreeNode * dfs(int start,int end,vector<int> &arr) {
         
-        if(start > end) return nullptr;
-        
-        int mid = start + (end - start)/2;
-        
-        TreeNode *root = new TreeNode(arr[mid]);
-        
-        root->left = dfs(start,mid-1,arr);
-        root->right = dfs(mid+1,end,arr);
-        
-        return root;
         
     }
 };
