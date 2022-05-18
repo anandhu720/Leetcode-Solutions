@@ -25,12 +25,14 @@ public:
         dfs(root,umap);
         
         int maxi = INT_MIN;
-        for(auto it : umap) {
-            maxi = max(maxi,it.second);
-        }
+
                 
         vector<int> ans;
         for(auto it : umap) {
+            if(maxi < it.second){
+                maxi = it.second;
+                ans.clear();
+            } 
             if(it.second == maxi) ans.push_back(it.first);
         }
         
