@@ -11,27 +11,22 @@
  */
 class Solution {
 public:
+    
     int findBottomLeftValue(TreeNode* root) {
-        queue<TreeNode *> q;
-        q.push(root);
-        int ans = 0;
-        
-        while(!q.empty()) {
-            
-            int size = q.size();
-            
-            for(int i=0;i<size;i++) {
-                
-                TreeNode *node = q.front(); q.pop();
-                if(i == 0) ans = node->val;
-                
-                if(node->left) q.push(node->left);
-                if(node->right) q.push(node->right);
-                
-            }
-            
-        }
-        
+        int  currLevel = 0,maxLevel = -1,ans = -1;
+        dfs(root,currLevel,maxLevel,ans);
         return ans;
+    }
+    
+    void dfs(TreeNode *root,int currLevel,int &maxLevel,int &ans) {
+        if(!root) return;
+        
+        dfs(root->left,currLevel+1,maxLevel,ans);
+        dfs(root->right,currLevel+1,maxLevel,ans);
+        
+        if(currLevel > maxLevel) {
+            maxLevel = currLevel;
+            ans = root->val;
+        }
     }
 };
