@@ -11,31 +11,30 @@
  */
 class Solution {
 public:
-    void dfs(TreeNode *root, unordered_map<int,int> &umap) {
-        
-        if(root) {
-            umap[root->val]++;
-            dfs(root->left,umap);
-            dfs(root->right,umap);
-        }
-        
-    }
+    int maxFreq = 0,currFreq = 0,precursor = INT_MIN;
+    vector<int> ans;
     vector<int> findMode(TreeNode* root) {
-        unordered_map<int,int> umap;
-        dfs(root,umap);
+        inorder(root);
+        return ans;
+    }
+    
+    void inorder(TreeNode *root) {
+        if(!root) return;
         
-        int maxi = INT_MIN;
-
-                
-        vector<int> ans;
-        for(auto it : umap) {
-            if(maxi < it.second){
-                maxi = it.second;
-                ans.clear();
-            } 
-            if(it.second == maxi) ans.push_back(it.first);
+        inorder(root->left);
+        
+        if(precursor == root->val) currFreq++;
+        else currFreq = 1;
+        if(currFreq > maxFreq) {
+            ans.clear();
+            maxFreq = currFreq;
+            ans.emplace_back(root->val);
+        }else if(currFreq == maxFreq){
+            ans.emplace_back(root->val);
         }
         
-        return ans;
+        precursor = root->val;
+        
+        inorder(root->right);
     }
 };
