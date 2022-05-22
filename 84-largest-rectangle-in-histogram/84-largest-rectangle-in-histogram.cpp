@@ -4,7 +4,7 @@ public:
         int n = heights.size();
         stack<int> st;
         
-        int left[n],right[n];
+        int left[n];
         
         for(int i=0;i<n;i++) {
             while(!st.empty() and heights[st.top()] >= heights[i])
@@ -22,15 +22,15 @@ public:
             while(!st.empty() and heights[st.top()] >= heights[i])
                 st.pop();
             
-            if(st.empty()) right[i] = n-1;
-            else right[i] = st.top() - 1;
+            if(st.empty()) left[i] = (n-1) - left[i];
+            else left[i] = (st.top() - 1) - left[i];
             
             st.push(i);
         }
         
         int maxA = 0;
         for(int i=0;i<n;i++) {
-            maxA = max(maxA,heights[i] * (right[i] - left[i] + 1));
+            maxA = max(maxA,heights[i] * (left[i] + 1));
         }
         
         return maxA;
