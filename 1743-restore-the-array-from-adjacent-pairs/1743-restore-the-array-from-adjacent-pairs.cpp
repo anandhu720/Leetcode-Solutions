@@ -8,30 +8,25 @@ public:
             m[it[1]].emplace_back(it[0]);
         }
         
-        int head;
+        vector<int> res;
         for(auto it : m) {
             if(it.second.size() == 1) {
-                head = it.first;
+                res.emplace_back(it.first);
+                res.emplace_back(it.second[0]);
                 break;
             }
         }
-        unordered_set<int> v;
-        vector<int> res;
         
-        dfs(m,v,head,res);
+        while(res.size() <= ap.size()) {
+            
+            auto tail = res.back(); 
+            auto prev = res[res.size()-2];
+            auto next = m[tail];
+            if(next[0] == prev) res.emplace_back(next[1]);
+            else res.emplace_back(next[0]);
+            
+        }
         
         return res;
-        
-    }
-    
-    void dfs(unordered_map<int,vector<int>> &m,unordered_set<int> &v,int head,vector<int> &res){
-        
-        if(v.find(head) != v.end()) return;
-        
-        res.emplace_back(head);
-        v.insert(head);
-        
-        for(auto it : m[head]) dfs(m,v,it,res);
-        
     }
 };
