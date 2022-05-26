@@ -10,29 +10,7 @@ public:
                 if(i == 0 or i == m-1 or j == 0 or j == n-1) {
 
                     if(board[i][j] == 'O') {
-                        queue<pair<int,int>> q;
-                        q.push({i,j});
-                        board[i][j] = '1';
-                        
-                        
-                        while(!q.empty()) {
-                            auto x = q.front();
-                            q.pop();
-                            
-                            for(int k=0;k<4;k++) {
-                                int r = x.first + grad[k];
-                                int c = x.second + grad[k+1];
-                                
-                                if(r<0 or c<0 or r>=m or c>=n) continue;
-                                
-                                if(board[r][c] == 'O'){
-                                    board[r][c] = '1';
-                                    q.push({r,c});
-                                }
-                                
-                            }
-                        }
-                
+                        dfs(i,j,board);
                     }
                     
                 }
@@ -46,7 +24,18 @@ public:
                 else if(board[i][j] == '1') board[i][j] = 'O';
             }
         }
+         
+    }
+    
+    void dfs(int i,int j,vector<vector<char>> &grid) {
         
+        if(i<0 or j<0 or i>=grid.size() or j>=grid[0].size() or grid[i][j] != 'O') return;
         
+        grid[i][j] = '1';
+        
+        dfs(i+1,j,grid);
+        dfs(i-1,j,grid);
+        dfs(i,j+1,grid);
+        dfs(i,j-1,grid);
     }
 };
