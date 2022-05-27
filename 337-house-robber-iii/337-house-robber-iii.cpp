@@ -11,16 +11,21 @@
  */
 class Solution {
 public:
-    //native approch
-    unordered_map<TreeNode *,int> dp;
     int rob(TreeNode* root) {
-        if(!root) return 0;
-        if(dp.find(root) != dp.end()) return dp[root];
+        vector<int> res = robSub(root);  // res[0] = robbed without root,res[1] = robbed with root
+        return  max(res[0],res[1]);
+    }
+    
+    vector<int> robSub(TreeNode *root) {
+        if(!root) return {0,0};
         
-        int val = 0;
-        if(root->left) val += (rob(root->left->left) + rob(root->left->right)); 
-        if(root->right) val += (rob(root->right->left) + rob(root->right->right));
+        vector<int> left  = robSub(root->left);
+        vector<int> right = robSub(root->right);
         
-        return dp[root] = max(val+root->val,rob(root->left)+rob(root->right));
+        vector<int> res(2,0);
+        res[0] = max(left[0],left[1]) + max(right[0],right[1]);
+        res[1] = root->val + left[0] + right[0];
+        
+        return res;
     }
 };
