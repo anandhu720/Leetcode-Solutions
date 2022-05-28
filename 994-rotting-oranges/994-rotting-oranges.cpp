@@ -1,34 +1,42 @@
 class Solution {
 public:
-    int rot(int i, int j,vector<vector<int>>& g, int d) {
-        if (i < 0 || j < 0 || i >= g.size() || j >= g[i].size() || g[i][j] != 1) return 0;
-        g[i][j] = d + 3;
-        return 1;
-    }
-    
-    int orangesRotting(vector<vector<int>>& grid,int d = 0,int fresh = 0) {
-        int m = grid.size(), n = grid[0].size();
+    int orangesRotting(vector<vector<int>>& grid) {
+        int m = grid.size(),n = grid[0].size();
+        int grad[] = {0,1,0,-1,0};
         
-        for(int i=0;i<m;i++) 
-            for(int j=0;j<n;j++)
-                if(grid[i][j] == 1) fresh++;
+        queue<pair<int,int>> q;
+        int totalOrange = 0;
         
-        for(int old_fresh = fresh;fresh > 0;d++) {
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++) {
+                if(grid[i][j] != 0) totalOrange++;
+                if(grid[i][j] == 2) q.push({i,j});
+            }
+        }
+        
+        int days = 0;
+        int cnt = 0;
+        while(!q.empty()) {
+            int size = q.size();
+            cnt += size;
             
-            for(int i=0;i<m;i++) {
-                for(int j=0;j<n;j++) {
+            while(size--) {
+                auto x = q.front(); q.pop();
+                
+                for(int k=0;k<4;k++) {
+                    int r = x.first + grad[k];
+                    int c = x.second + grad[k+1];
                     
-                    if(grid[i][j] == d+2) {
-                        fresh -= rot(i-1,j,grid,d) + rot(i+1,j,grid,d) + rot(i,j-1,grid,d)                                         +rot(i,j+1,grid,d); 
-                    }
+                    if(r < 0 || c < 0 || r >= m || c >= n || grid[r][c] != 1) continue;
+                    grid[r][c] = 2;
+                    q.push({r,c});
                     
                 }
             }
-            if(fresh == old_fresh) return -1;
-            old_fresh = fresh;
             
+            if(!q.empty()) days++;
         }
         
-        return d;
+        return totalOrange == cnt ? days : -1;
     }
 };
