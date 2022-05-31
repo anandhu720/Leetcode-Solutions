@@ -1,20 +1,25 @@
 class Solution {
 public:
+    // stack
     int mctFromLeafValues(vector<int>& arr) {
+        vector<int> st = {INT_MAX};
         
-        int sum = 0;
+        int res = 0;
         
-        while(arr.size() > 1) {
-            int minIndex = min_element(arr.begin(),arr.end()) - arr.begin();
-            
-            int left = minIndex-1 >= 0 ? arr[minIndex-1] : INT_MAX;
-            int right = minIndex+1 < arr.size() ? arr[minIndex+1] : INT_MAX;
-            
-            sum += arr[minIndex] * min(left,right);
-            
-            arr.erase(arr.begin()+minIndex);
+        for(int a : arr) {
+            while(st.back() <= a) {
+                int mid = st.back();
+                st.pop_back();
+                res += mid * min(a,st.back());
+            }
+            st.push_back(a);
         }
         
-        return sum;
+        for(int i=2;i<st.size();i++) {
+            res += st[i-1] * st[i];
+        }
+        
+        return res;
+        
     }
 };
