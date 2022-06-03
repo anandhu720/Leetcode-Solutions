@@ -1,115 +1,46 @@
 class Solution {
 public:
-    vector<vector<char>> updateBoard(vector<vector<char>>& board, vector<int>& click) {
+    vector<vector<char>> updateBoard(vector<vector<char>>& grid, vector<int>& click) {
+        int m = grid.size(), n = grid[0].size();
         
-        queue<pair<int,int>> q;
-        q.push({click[0],click[1]});
+        int r = click[0];
+        int c = click[1];
         
-        while(!q.empty()) {
+        if(grid[r][c] == 'M')
+            grid[r][c] = 'X';
+        else {
             
-            int size = q.size();
+            int count = 0;
             
-            for(int i=0;i<size;i++) {
-                
-                auto x = q.front(); q.pop();
-                
-                if(board[x.first][x.second] == 'M') {
-                    board[x.first][x.second] = 'X';
-                    return board;
+            for(int i=-1;i<2;i++) {
+                for(int j=-1;j<2;j++) {
+                    if(i==0 and j==0) continue;
+                    int row = r+i;
+                    int col = c+j;
+                    if(row < 0 or row >= m or col < 0 or col >= n) continue;
+                    if(grid[row][col] == 'M' or grid[row][col] == 'X') count++;
                 }
-                
-
-                int noOfMines = check(x.first,x.second,board);  // check no of mines near
-                if(noOfMines == 0) {
-                    board[x.first][x.second] = 'B';
-                    dfs(x.first,x.second,board,q); // add all in queue
-                }else{
-                    board[x.first][x.second] = noOfMines + 48;
-                }
-
-                
             }
-         
+            
+            if(count > 0) grid[r][c] = count + 48;
+            
+            else if(count == 0) {
+                grid[r][c] = 'B';
+                for(int i=-1;i<2;i++) {
+                    for(int j=-1;j<2;j++) {
+                        if(i==0 and j==0) continue;
+                        int row = r+i;
+                        int col = c+j;
+                        if(row < 0 or row >= m or col < 0 or col >= n) continue;
+                        if(grid[row][col] == 'E') {
+                            vector<int> temp = {row,col};
+                            updateBoard(grid,temp);
+                    }
+                }
+            }
+            
         }
-        
-        return board;
     }
-    
-    int check(int r,int c,vector<vector<char>> &board) {
-        
-        int m = board.size(),n = board[0].size();
-        
-        int count = 0;
-        
-        if(r+1 < m and board[r+1][c] == 'M') {
-            count++;
-        }
-        if(r-1 >= 0 and board[r-1][c] == 'M') {
-            count++;
-        }
-        if(c+1 < n and board[r][c+1] == 'M') {
-            count++;
-        }
-        if(c-1 >= 0 and board[r][c-1] == 'M') {
-            count++;
-        }
-        
-        
-        if(r+1 < m  and c+1 < n and board[r+1][c+1] == 'M') {
-            count++;
-        }
-        if(r+1 < m  and c-1 >= 0 and board[r+1][c-1] == 'M') {
-            count++;
-        }
-        if(r-1 >= 0  and c+1 < n and board[r-1][c+1] == 'M') {
-            count++;
-        }
-        if(r-1 >= 0  and c-1 >= 0 and board[r-1][c-1] == 'M') {
-            count++;
-        }
-        
-        
-        return count;
-        
-    }
-    
-    void dfs(int r,int c,vector<vector<char>> &board,queue<pair<int,int>> &q) {
-        int m = board.size(),n = board[0].size();
-        
-        if(r+1 < m and board[r+1][c] == 'E') {
-            q.push({r+1,c});
-            board[r+1][c] = 'B';
-        }
-        if(r-1 >= 0 and board[r-1][c] == 'E') {
-            q.push({r-1,c});
-            board[r-1][c] = 'B';
-        }
-        if(c+1 < n and board[r][c+1] == 'E') {
-            q.push({r,c+1});
-            board[r][c+1] = 'B';
-        }
-        if(c-1 >= 0 and board[r][c-1] == 'E') {
-            q.push({r,c-1});
-            board[r][c-1] = 'B';
-        }
-        
-        
-        if(r+1 < m  and c+1 < n and board[r+1][c+1] == 'E') {
-            q.push({r+1,c+1});
-            board[r+1][c+1] = 'B';
-        }
-        if(r+1 < m  and c-1 >= 0 and board[r+1][c-1] == 'E') {
-            q.push({r+1,c-1});
-            board[r+1][c-1] = 'B';
-        }
-        if(r-1 >= 0  and c+1 < n and board[r-1][c+1] == 'E') {
-            q.push({r-1,c+1});
-            board[r-1][c+1] = 'B';
-        }
-        if(r-1 >= 0  and c-1 >= 0 and board[r-1][c-1] == 'E') {
-            q.push({r-1,c-1});
-            board[r-1][c-1] = 'B';
-        }
-        
+         return grid;
     }
 };
