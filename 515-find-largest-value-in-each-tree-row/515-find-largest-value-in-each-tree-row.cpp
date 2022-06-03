@@ -11,31 +11,19 @@
  */
 class Solution {
 public:
+    vector<int> res;
     vector<int> largestValues(TreeNode* root) {
-        if(!root) return {};
-        vector<int> res;
-        
-        queue<TreeNode *> q;
-        q.push(root);
-        
-        while(!q.empty()) {
-            int maxi = INT_MIN;
-            
-            int size = q.size();
-            
-            for(int i=0;i<size;i++) {
-                
-                TreeNode *node = q.front(); q.pop();
-                
-                maxi = max(maxi,node->val);
-                
-                if(node->left) q.push(node->left);
-                if(node->right) q.push(node->right);
-            }
-            
-            res.emplace_back(maxi);
-        }
-        
+        pre(root,1);
         return res;
+    }
+    
+    void pre(TreeNode* root,int level) {
+        if(!root) return;
+        
+        if(res.size() < level) res.push_back(root->val);
+        else res[level-1] = max(res[level-1],root->val);
+        
+        pre(root->left,level+1);
+        pre(root->right,level+1);
     }
 };
