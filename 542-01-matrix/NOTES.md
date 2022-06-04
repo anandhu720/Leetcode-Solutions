@@ -1,3 +1,4 @@
+Brute force
 ```
 class Solution {
 public:
@@ -27,11 +28,3 @@ int row = x.first + grad[k];
 int col = x.second + grad[k+1];
 if(row<0 or col<0 or row>=grid.size() or col>=grid[0].size()) continue;
 if(grid[row][col] == 0) return length;
-q.push({row,col});
-}
-}
-}
-return length;
-}
-};
-```
