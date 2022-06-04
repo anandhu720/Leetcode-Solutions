@@ -1,50 +1,25 @@
 class Solution {
 public:
     int findCircleNum(vector<vector<int>>& isConnected) {
-        unordered_map<int,vector<int>> adj;
-        int n = 0;
-        for(int i=0;i<isConnected.size();i++) {
-            n++;
-            for(int j=0;j<isConnected.size();j++) {
-                if(j == n-1 or isConnected[i][j] == 0) continue;
-                adj[n].push_back(j+1);
-            }
-            if(adj[n].size() == 0) adj[n] = {};
-        }
-        
-        // for(auto it : adj){
-        //     cout<<it.first<<" : ";
-        //     for(auto k : it.second) {
-        //         cout<<k<<" ";
-        //     }
-        //     cout<<endl;
-        // }
-        
-        vector<bool> visited(isConnected.size()+1,false);
+        vector<bool> visited(isConnected.size(),false);
         int prov = 0;
         
-        for(int i=1;i<visited.size();i++) {
-            queue<int> q;
-            
+        for(int i=0;i<isConnected.size();i++) {
             if(visited[i] == false) {
-                prov += 1;
-                q.push(i);
-                visited[i] = true;
+                dfs(isConnected,i,visited);
+                prov++;
             }
-            
-            while(!q.empty()) {
-                int node = q.front(); q.pop();
-                                
-                for(auto it : adj[node]) {
-                    if(visited[it] == false) {
-                        visited[it] = true;
-                        q.push(it);
-                    }
-                }
-            }
-            
         }
-                
+        
         return prov;
+    }
+    
+    void dfs(vector<vector<int>> &grid,int i,vector<bool> &visited) {
+        for(int j=0;j<grid.size();j++) { // traversing through col
+            if(grid[i][j] == 1 and visited[j] == false) {
+                visited[j] = true;
+                dfs(grid,j,visited);
+            }
+        }
     }
 };
