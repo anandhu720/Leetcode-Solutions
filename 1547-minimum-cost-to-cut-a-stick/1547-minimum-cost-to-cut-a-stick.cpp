@@ -1,29 +1,28 @@
 class Solution {
 public:
     int minCost(int n, vector<int>& cuts) {
-        cuts.emplace_back(0);
-        cuts.emplace_back(n);
-        sort(cuts.begin(),cuts.end());
+		int size = cuts.size();
         
-        vector<vector<int>> dp(cuts.size()+2,vector<int> (cuts.size()+2,-1));
+        cuts.push_back(n);
+        cuts.insert(cuts.begin(), 0);
+        sort(cuts.begin(), cuts.end());
         
-        return dfs(cuts,0,cuts.size()-1,dp);
-    }
-    
-    int dfs(vector<int> &cuts,int left,int right,vector<vector<int>> &dp) {
+        vector<vector<int>> dp(size + 2, vector<int> (size + 2, 0));
         
-        if(right - left <= 1) return 0;
-        
-        if(dp[left][right] != -1) return dp[left][right];
-        
-        int ans = INT_MAX;
-        for(int cut = left+1;cut<right;cut++) {
-            ans = min(ans,
-                      (cuts[right] - cuts[left])+dfs(cuts,left,cut,dp)+dfs(cuts,cut,right,dp)
-                     );
+        for(int i = size; i >= 1; i--){
+            for(int j = 1; j <= size; j++){
+                if(i > j) continue;
+                
+                int mini = 1e9;
+                for(int idx = i; idx <= j; idx++){
+                    int cost = cuts[j + 1] - cuts[i - 1] + dp[i][idx - 1] + dp[idx + 1][j];
+                    mini = min(mini, cost);
+                }
+
+                dp[i][j] = mini;
+            }
         }
         
-        return dp[left][right] = ans;
-        
+        return dp[1][size];
     }
 };
