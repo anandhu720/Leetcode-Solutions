@@ -1,51 +1,23 @@
 class Solution {
 public:
-    vector<vector<int>> colorBorder(vector<vector<int>>& grid, int r, int c, int color) {
+    void dfs(int r,int c,vector<vector<int>> &g,int cl) {
+        if(r<0 or r>=g.size() or c<0 or c>=g[0].size() or g[r][c] != cl) return;
         
-        queue<pair<int,int>> q;
-        vector<vector<bool>> visited(grid.size(),vector<bool>(grid[0].size(),false));
+        g[r][c] = -1 * cl;
         
-        q.push({r,c});
-        visited[r][c] = true;
+        int grad[] = {0,1,0,-1,0};
         
-        int val = grid[r][c];
+        for(int k=0;k<4;k++) dfs(r+grad[k],c+grad[k+1],g,cl);
         
-        while(!q.empty()) {
-            auto x = q.front();
-            q.pop();
-            
-            int grad[] = {0,1,0,-1,0};
-            
-            bool Border = false;
-            
-            for(int k=0;k<4;k++) {
-                int row = x.first + grad[k];
-                int col = x.second + grad[k+1];
-                
-                
-                if(row<0 or col<0 or row>=grid.size() or col>= grid[0].size()) {
-                    Border = true;
-                    continue;
-                }
-                
-                if(!visited[row][col] and grid[row][col] != val) {
-                    Border = true;
-                    continue;
-                }
-                
-                if(!visited[row][col]) {
-                    q.push({row,col});
-                    visited[row][col] = true;
-                }                
-                
-            }
-            
-            if(Border)
-                grid[x.first][x.second] = color;
-        }
-        
-        return grid;
-
+        if(r > 0 && r < g.size() - 1 && c > 0 && c < g[r].size() - 1 && cl == abs(g[r - 1][c]) &&
+    cl == abs(g[r + 1][c]) && cl == abs(g[r][c - 1]) && cl == abs(g[r][c + 1]))
+            g[r][c] = cl;
     }
-    
+    vector<vector<int>> colorBorder(vector<vector<int>>& grid, int row, int col, int color) {
+        dfs(row,col,grid,grid[row][col]);
+        for (auto i = 0; i < grid.size(); ++i)
+            for (auto j = 0; j < grid[i].size(); ++j) 
+                grid[i][j] = grid[i][j] < 0 ? color : grid[i][j];
+        return grid;
+    }
 };
