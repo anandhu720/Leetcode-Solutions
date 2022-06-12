@@ -1,23 +1,34 @@
 class Solution {
-   public:
+public:
     int minOperations(vector<int>& nums, int x) {
-        int sum = 0, n = nums.size();
-        for (int i : nums) sum += i;
-        int target = sum - x;
-        int curr_sum = 0, max_len = 0;
-        int start_idx = 0;
-        bool found = false;
-        for (int end_idx = 0; end_idx < n; end_idx++) {
-            curr_sum += nums[end_idx];
-            while (start_idx <= end_idx && curr_sum > target) {
-                curr_sum -= nums[start_idx];
-                start_idx += 1;
+        int total = 0;
+        for(auto it : nums) total += it;
+        
+        x = total - x;
+        
+        int left = 0, right = 0;
+        int sum = 0;
+        
+        int res = INT_MAX;
+        
+        while(right < nums.size()) {
+            
+            sum += nums[right];
+            
+            while(left <= right and sum > x) {
+                sum -= nums[left];
+                left++;
             }
-            if (curr_sum == target) {
-                found = true;
-                max_len = max(max_len, end_idx - start_idx + 1);
+            
+            if(sum == x) {
+                int temp = nums.size() - (right-left+1);
+                res = min(res,temp); 
             }
+            
+            right++;
+            
         }
-        return found ? n - max_len : -1;
+        
+        return res == INT_MAX ? -1 : res;
     }
 };
