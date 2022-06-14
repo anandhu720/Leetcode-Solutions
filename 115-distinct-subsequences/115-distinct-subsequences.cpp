@@ -1,24 +1,28 @@
 class Solution {
 public:
     int numDistinct(string s, string t) {
-        vector<vector<int>> dp(s.size(),vector<int>(t.size(),-1));
-        return dfs(s.size()-1,t.size()-1,s,t,dp);
-    }
-    
-    int dfs(int i,int j,string &s,string &t,vector<vector<int>> &dp) {
+        int m = s.size(), n = t.size();
+        vector<vector<double>> dp(m+1,vector<double>(n+1,0));
         
-        if(j < 0) return 1;
-        if(i < 0) return 0;
         
-        if(dp[i][j] != -1) return dp[i][j];
-        
-        int match = 0,notMatch = 0;
-        if(s[i] == t[j]) {
-            match = dfs(i-1,j-1,s,t,dp) + dfs(i-1,j,s,t,dp);
-        }else{
-            notMatch = dfs(i-1,j,s,t,dp);
+        for(int i=1;i<=m;i++) {
+            if(s[i-1] == t[0]) dp[i][1] = dp[i-1][1] + 1;
+            else dp[i][1] = dp[i-1][1];   
         }
         
-        return dp[i][j] = match + notMatch;
+        
+        
+        for(int i=1;i<=m;i++) {
+            for(int j=2;j<=n;j++) {
+                if(s[i-1] == t[j-1]) {
+                    dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
+                }else{
+                    dp[i][j] = dp[i-1][j];
+                }
+            }
+        }
+        
+        return dp[m][n];
+        
     }
 };
