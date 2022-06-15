@@ -1,9 +1,7 @@
 class Solution {
 public:
     int maxProfit(int time, vector<int>& prices) {
-        vector<vector<vector<int>>> dp(prices.size()+1,
-                                    vector<vector<int>> (2,vector<int>(time+1,0)) 
-                                     );
+        vector<vector<int>> prev(2,vector<int>(time+1,0)),curr(2,vector<int>(time+1,0));
         
         for(int index=prices.size()-1;index >= 0;index--) {
             for(int buy=0;buy<2;buy++) {
@@ -11,16 +9,17 @@ public:
                     
                     int price = 0;
                     if(buy == 1) 
-                        price = max(-prices[index] + dp[index+1][0][k],dp[index+1][1][k]);
+                        price = max(-prices[index] + prev[0][k],prev[1][k]);
                     else
-                        price = max(prices[index] + dp[index+1][1][k-1],dp[index+1][0][k]);     
+                        price = max(prices[index] + prev[1][k-1],prev[0][k]);     
                     
-                    dp[index][buy][k] = price;
+                    curr[buy][k] = price;
                 }
             }
+            prev = curr;
         }
         
-        return dp[0][1][time];
+        return curr[1][time];
         
         
     }
