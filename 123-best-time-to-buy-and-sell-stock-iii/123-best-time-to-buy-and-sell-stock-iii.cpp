@@ -1,29 +1,29 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        vector<vector<vector<int>>> dp(prices.size(),vector<vector<int>>(2,vector<int>(2,-1)));
-        return dfs(0,prices,true,1,dp);
-    }
-    
-    int dfs(int index,vector<int> &prices,bool buy,int left,vector<vector<vector<int>>> &dp) {
+        vector<vector<vector<int>>> dp(prices.size()+1,
+                    vector<vector<int>>(2,vector<int>(3,-1)));
         
-        if(index == prices.size()) return 0;
-        if(left < 0) return 0;
-        
-        if(dp[index][buy][left] != -1) return dp[index][buy][left];
-        
-        int price = 0;
-        if(buy) {
-            price = max(-prices[index] + dfs(index+1,prices,0,left,dp),
-                         dfs(index+1,prices,1,left,dp)
+        for(int index=prices.size()-1;index>=0;index--) {
+            for(int buy=0;buy<2;buy++) {
+                for(int left = 1;left<=2;left++) {
+                    int price = 0;
+                    if(buy == 1) {
+                        price = max(-prices[index] + dp[index+1][0][left],
+                         dp[index+1][1][left]
+                        );     
+                    }else{
+                        price = max(prices[index] + dp[index+1][1][left-1],
+                        dp[index+1][0][left]
                         );
-        }else{
-            price = max(prices[index] + dfs(index+1,prices,1,left-1,dp),
-                        dfs(index+1,prices,0,left,dp)
-                        );
+                    }
+                    dp[index][buy][left] = price;
+                }
+                
+            }
         }
         
-        return dp[index][buy][left] = price;
         
-    }
+        return dp[0][1][2] + 1;
+    }    
 };
