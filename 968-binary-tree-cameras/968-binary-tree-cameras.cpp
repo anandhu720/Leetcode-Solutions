@@ -11,28 +11,32 @@
  */
 class Solution {
 public:
-    int minCameraCover(TreeNode *root) {
-        return dfs(root);
+    /*
+      Greedy Approch
+      Best way to attain min is to place camera in leaf nodes parents ( in btw )
+      
+      Node return values meaning
+      1 - parent of leaf node, need to put camera
+      0 - leaf node
+      2 - covered by camera but dont have camera on it
+    */
+    int noOfCamera = 0;
+    int minCameraCover(TreeNode* root) {
+        return (dfs(root) == 0 ? 1 : 0) + noOfCamera;
     }
-    int dfs(TreeNode* root,bool hasCamera = false,bool isMonitored = false) {
+    
+    int dfs(TreeNode *root) {
+        if(!root) return 2;
         
-        if(!root) return 0;
-        if(hasCamera) return 1 + dfs(root->left,false,true) + dfs(root->right,false,true);
-        if(isMonitored) {
-            int noCam = dfs(root->left,false,false) + dfs(root->right,false,false);
-            int rCam = 1 + dfs(root->left,false,true) + dfs(root->right,false,true);
-            return min(noCam,rCam);
+        int left = dfs(root->left);
+        int right = dfs(root->right);
+        
+        if(left == 0 || right == 0) {
+            noOfCamera++;
+            return 1;
         }
         
-        if(root->val != 0) return root->val;  //cacheing
-        
-        int rootCam = 1 + dfs(root->left,false,true) + dfs(root->right,false,true);
-        int leftCam = root->left == NULL ? 1e9 : 
-                        dfs(root->left,true,false) + dfs(root->right,false,false);
-        int rightCam = root->right == NULL ? 1e9 :
-                        dfs(root->left,false,false) + dfs(root->right,true,false);
-        
-        return root->val = min(rootCam,min(leftCam,rightCam));
+        return (left == 1 || right == 1) ? 2 : 0;
         
     }
 };
