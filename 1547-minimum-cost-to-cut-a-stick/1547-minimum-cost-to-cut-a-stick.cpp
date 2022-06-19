@@ -6,24 +6,25 @@ public:
         
         sort(cuts.begin(),cuts.end());
         
-        vector<vector<int>> dp(cuts.size(),vector<int> (cuts.size(),-1));
-        return dfs(0,cuts.size()-1,cuts,dp);
-    }
-    
-    int dfs(int left,int right,vector<int> &cuts,vector<vector<int>> &dp) {
+        vector<vector<int>> dp(cuts.size(),vector<int> (cuts.size(),0));
         
-        if(right - left <= 1) return 0;  // size of stick is less than or equal to 1
-        
-        if(dp[left][right] != -1) return dp[left][right];
-        
-        int mini = INT_MAX;
-        for(int index = left+1;index<right;index++) {
-            mini = min(
-                mini,
-                cuts[right] - cuts[left] + dfs(left,index,cuts,dp) + dfs(index,right,cuts,dp)
-            );
+        for(int left = dp.size();left>=0;left--) {
+            for(int right=0;right<dp.size();right++) {
+                if(right - left <= 1) continue;
+                
+                int mini = INT_MAX;
+                for(int index = left+1;index<right;index++) {
+                    mini = min(
+                        mini,
+                        cuts[right] - cuts[left] + dp[left][index]+ dp[index][right]
+                    );
+                }
+                
+                dp[left][right] = mini;
+            }
         }
         
-        return dp[left][right] = mini;
+        return dp[0][dp.size()-1];
+
     }
 };
