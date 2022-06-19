@@ -1,28 +1,29 @@
 class Solution {
 public:
     int minCost(int n, vector<int>& cuts) {
-		int size = cuts.size();
-        
+        cuts.push_back(0);
         cuts.push_back(n);
-        cuts.insert(cuts.begin(), 0);
-        sort(cuts.begin(), cuts.end());
         
-        vector<vector<int>> dp(size + 2, vector<int> (size + 2, 0));
+        sort(cuts.begin(),cuts.end());
         
-        for(int i = size; i >= 1; i--){
-            for(int j = 1; j <= size; j++){
-                if(i > j) continue;
-                
-                int mini = 1e9;
-                for(int idx = i; idx <= j; idx++){
-                    int cost = cuts[j + 1] - cuts[i - 1] + dp[i][idx - 1] + dp[idx + 1][j];
-                    mini = min(mini, cost);
-                }
-
-                dp[i][j] = mini;
-            }
+        vector<vector<int>> dp(cuts.size(),vector<int> (cuts.size(),-1));
+        return dfs(0,cuts.size()-1,cuts,dp);
+    }
+    
+    int dfs(int left,int right,vector<int> &cuts,vector<vector<int>> &dp) {
+        
+        if(right - left <= 1) return 0;  // size of stick is less than or equal to 1
+        
+        if(dp[left][right] != -1) return dp[left][right];
+        
+        int mini = INT_MAX;
+        for(int index = left+1;index<right;index++) {
+            mini = min(
+                mini,
+                cuts[right] - cuts[left] + dfs(left,index,cuts,dp) + dfs(index,right,cuts,dp)
+            );
         }
         
-        return dp[1][size];
+        return dp[left][right] = mini;
     }
 };
