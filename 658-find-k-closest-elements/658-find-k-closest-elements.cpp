@@ -1,23 +1,16 @@
 class Solution {
 public:
-    // total time = nlogk + klogk ~ nlogk
     vector<int> findClosestElements(vector<int>& arr, int k, int x) {
-        priority_queue<pair<int,int>> pq;
+        int left = 0,right = arr.size()-k;
         
-        for(int i=0;i<arr.size();i++) {
-            pq.push({abs(x-arr[i]),arr[i]});
-            
-            if(pq.size() > k) pq.pop();
+        while(left < right) {
+            int mid = (right+left)/2;
+            if(x - arr[mid] > arr[mid+k] - x)
+                left = mid+1;
+            else 
+                right = mid;
         }
         
-        vector<int> ans;
-        
-        while(!pq.empty()) {  // nlogk
-            ans.push_back(pq.top().second);
-            pq.pop();
-        }
-        
-        sort(ans.begin(),ans.end()); // klogk
-        return ans;
+        return vector<int>(arr.begin()+left,arr.begin()+left+k);
     }
 };
