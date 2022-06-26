@@ -1,40 +1,25 @@
 class Solution {
 public:
+    int mod = 1e9+7;
     int countHousePlacements(int n) {
-        vector<vector<int>> grid(n+1,vector<int>(2,0));
-        vector<vector<vector<int>>> dp(n+1,vector<vector<int>>(2,vector<int>(2,-1)));
-        return dfs(1,grid,dp);
+        vector<long long> dp(n+1,-1);
+        
+        long long ans = dfs(n,dp);
+        
+        ans += (ans + (ans*ans))%mod;
+
+        return (ans+1)%mod;
     }
     
-    int dfs(int r,vector<vector<int>> &grid,vector<vector<vector<int>>> &dp) {
+    int dfs(int n,vector<long long> &dp) {
         
-        if(r == grid.size()) return 1;
+        if(n <= 0) return 0;
         
-        if(dp[r][grid[r-1][0]][grid[r-1][1]] != -1) return dp[r][grid[r-1][0]][grid[r-1][1]];
+        if(dp[n] != -1) return dp[n];
         
-        int dpe=0,lpo=0,rpo=0,pb=0;
+        int place = 1 + dfs(n-2,dp);
+        int notPlace = dfs(n-1,dp);
         
-        dpe = dfs(r+1,grid,dp);  // dont place anything
-        
-        if(grid[r-1][0] != 1) {
-            grid[r][0] = 1;
-            lpo = dfs(r+1,grid,dp); // left place building
-            grid[r][0] = 0;
-        }
-        
-        if(grid[r-1][1] != 1) {
-            grid[r][1] = 1;
-            rpo = dfs(r+1,grid,dp);  // right place building
-            grid[r][1] = 0;
-        }
-        
-        if(grid[r-1][0] != 1 and grid[r-1][1] != 1) {
-            grid[r][0] = grid[r][1] = 1;
-            pb = dfs(r+1,grid,dp);  // both building place
-            grid[r][0] = grid[r][1] = 0;
-        }
-        
-        return dp[r][grid[r-1][0]][grid[r-1][1]] = ((dpe+lpo)%1000000007+(rpo+pb)%1000000007)%1000000007;
-        
+        return dp[n] = (place + notPlace)%mod;
     }
 };
