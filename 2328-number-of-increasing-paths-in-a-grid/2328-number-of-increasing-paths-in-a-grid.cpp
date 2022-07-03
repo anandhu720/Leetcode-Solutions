@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[1000][1000] = {}, dir[5] = {0, 1, 0, -1, 0}, mod = 1000000007;
+    int dp[1000][1000] = {}, mod = 1000000007;
     int dfs(vector<vector<int>>& g, int i, int j, int v) {
         if (min(i, j) < 0 || i >= g.size() || j >= g[i].size() || g[i][j] <= v)
             return 0;
