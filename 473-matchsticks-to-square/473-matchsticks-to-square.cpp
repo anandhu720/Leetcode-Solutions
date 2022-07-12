@@ -6,6 +6,11 @@ private:
         
         for(int j=0;j<4;j++) {
             if(sides[j] + ms[i] <= length) {
+                int k = j;
+                while (--k >= 0) // third
+                    if (sides[j] == sides[k]) 
+                        break;
+                if (k != -1) continue;
                 sides[j] += ms[i];
                 if(dfs(i+1,ms,sides,length)) return true;
                 sides[j] -= ms[i];
