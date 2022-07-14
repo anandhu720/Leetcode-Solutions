@@ -9,32 +9,25 @@ public:
 */
 
 class Solution {
-public:
-    int getImportance(vector<Employee*> employees, int id) {
+private:
+    void dfs(vector<Employee*> &emp,int id,int &res) {
         
-        unordered_map<int,Employee*> umap;
-        
-        for(auto it : employees) {
-            umap[it->id] = it;
-        }
-        
-        int res = 0;
-        
-        queue<int> q;
-        q.push(id);
-        
-        while(!q.empty()) {
-            int currId = q.front(); q.pop();
-            
-            Employee *it = umap[currId];
-
-            res += it->importance;
-            for(auto i : it->subordinates) {
-                q.push(i);
+        for(auto it : emp) {
+            if(it->id == id) {
+                res += it->importance;
+                
+                for(auto i : it->subordinates) {
+                    dfs(emp,i,res);
+                }
+                
+                break;
             }
-
         }
-        
+    }
+public:
+    int getImportance(vector<Employee*> emp, int id) {
+        int res = 0;
+        dfs(emp,id,res);
         return res;
     }
 };
