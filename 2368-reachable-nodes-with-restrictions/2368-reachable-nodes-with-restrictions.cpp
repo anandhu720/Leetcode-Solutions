@@ -3,13 +3,13 @@ public:
     int ans = 0;
     int reachableNodes(int n, vector<vector<int>>& edges, vector<int>& res) {
        unordered_map<int,vector<int>> adj;
-        
+        unordered_set<int> uset(res.begin(),res.end());
         for(auto it : edges) {
+            if(uset.count(it[0]) > 0 or uset.count(it[1]) > 0) continue;
             adj[it[0]].push_back(it[1]);
             adj[it[1]].push_back(it[0]);
         }
         
-        unordered_set<int> uset(res.begin(),res.end());
         
         vector<bool> vis(n,false);
         
@@ -27,7 +27,7 @@ public:
         vis[n] = true;
         
         for(auto it : umap[n]) {
-            if(vis[it] == false and uset.find(it) == uset.end()) {
+            if(vis[it] == false) {
                 ans += 1;
                 dfs(it,umap,uset,vis);
             }
