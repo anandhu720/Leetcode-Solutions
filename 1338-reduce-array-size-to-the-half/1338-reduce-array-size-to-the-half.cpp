@@ -3,30 +3,22 @@ public:
     int minSetSize(vector<int>& arr) {
         unordered_map<int,int> umap;
         
-        int len = arr.size()/2;
-        for(int i=0;i<arr.size();i++) {
-            umap[arr[i]]++;
-        }
+        for(auto it : arr) umap[it]++;
         
         priority_queue<pair<int,int>> pq;
         
-        for(auto it : umap)
-            pq.push({it.second,it.first});
+        for(auto it : umap) pq.push({it.second,it.first});
         
         int count = 0;
         int ans = 0;
         
         while(!pq.empty()) {
-            if(count >= len) break;
+            count += pq.top().first; pq.pop();
+            ans += 1;
             
-            pair<int,int> x = pq.top();
-            pq.pop();
-            
-            count += x.first;
-            ans+=1;
+            if(count >= arr.size()/2) break;
         }
         
         return ans;
-
     }
 };
