@@ -18,6 +18,7 @@ public:
         
         while(right < s.length()) {
             finalNo = max(finalNo,currNo);
+            if(finalNo == k) return k;
             if(uset.count(s[left]) > 0) {
                 currNo -= 1;
             }
