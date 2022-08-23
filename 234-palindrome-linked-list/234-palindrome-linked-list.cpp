@@ -10,28 +10,36 @@
  */
 class Solution {
 public:
+    // T.C. : O(N) S.C. : O(1)
     bool isPalindrome(ListNode* head) {
-        ListNode *p = head;
+        ListNode *fast = head , *slow = head , *prev,*temp;
         
-        stack<ListNode *> st;
-        
-        while(p) {
-            st.push(p);
-            p = p->next;
+        while(fast and fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
         }
         
-        p = head;
+        prev = slow;
+        slow = slow->next;
+        prev->next = nullptr;
+        while(slow) {
+            temp = slow->next;
+            slow->next = prev;
+            prev = slow;
+            slow = temp;
+        }
         
-        while(p) {
-            int val = st.top()->val;
-            
-            st.pop();
-            
-            if(val != p->val) return false;
-            
-            p = p->next;
+        slow = prev;
+        fast = head;
+        
+        while(slow) {
+            if(slow->val != fast->val) return false;
+            slow = slow->next;
+            fast = fast->next;
         }
         
         return true;
+        
     }
 };
+
