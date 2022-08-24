@@ -1,27 +1,23 @@
 class Solution {
 public:
     bool isNStraightHand(vector<int>& nums, int gs) {
-        sort(nums.begin(),nums.end());
+        map<int,int> umap;
+        for(int it : nums) umap[it]++;
         
-        for(int i=0;i<nums.size();i++) {
-            
-            if(nums[i] != -1) {
-                int dist = nums[i] + gs - 1;
-                int currVal = nums[i];
-                nums[i] = -1;
-                int j = i+1;
-                while(j < nums.size() and currVal + 1 <= dist) {
-                    if(nums[j] == currVal + 1) {
-                        nums[j] = -1;
-                        currVal = currVal + 1;
-                    }
-                    j++;
-                }
-            
-                if(currVal < dist) return false; 
+        queue<int> q;
+        int last_checked = -1 ,opened = 0;
+        
+        for(auto it : umap) {
+            int i = it.first;
+            if(opened > 0 and i > last_checked+1 or opened > umap[i]) return false;
+            q.push(umap[i] - opened);
+            last_checked = i; opened = umap[i];
+            if(q.size() == gs) {
+                opened -= q.front();
+                q.pop();
             }
-            
         }
-        return true;
+        
+        return opened == 0;
     }
 };
