@@ -1,15 +1,14 @@
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        unordered_map<char,int> umap1;
-        unordered_map<char,int> umap2;
+        unordered_map<char,int> umap;
         
-        for(auto it : ransomNote) umap1[it]++;
-        for(auto it : magazine) umap2[it]++;
+        for(auto it : magazine) umap[it]++;
         
-        for(auto it : umap1) {
-            if(umap2.find(it.first) == umap2.end()) return false;
-            if(umap2[it.first] < it.second) return false;
+        for(auto it : ransomNote) {
+            if(umap.find(it) == umap.end()) return false;
+            umap[it]--;
+            if(umap[it] == 0) umap.erase(it);
         }
         
         return true;
