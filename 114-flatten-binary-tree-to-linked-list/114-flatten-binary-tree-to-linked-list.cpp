@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    //Morris Traversel
     void flatten(TreeNode* root) {
         TreeNode *curr = root;
         while(curr) {
@@ -20,7 +21,7 @@ public:
                 
                 prev->right = curr->right;
                 curr->right = curr->left;
-                curr->left = NULL;
+                curr->left = nullptr;
             }
             
             curr = curr->right;
