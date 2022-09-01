@@ -10,22 +10,23 @@
  * };
  */
 class Solution {
-private:
-    void dfs(TreeNode *root,int &count,int curr) {
-        if(root) {
-            if(root->val >= curr) {
-                count++;
-                curr = root->val;
-            }
-            
-            dfs(root->left,count,curr);
-            dfs(root->right,count,curr);
-        }
-    }
 public:
+    int good = 0;
     int goodNodes(TreeNode* root) {
-        int count = 0;
-        dfs(root,count,INT_MIN);
-        return count;
+        int maxi = INT_MIN;
+        dfs(root,maxi);
+        return good;
+    }
+    
+    void dfs(TreeNode *root,int maxi) {
+        if(!root) return;
+        
+        if(root->val >= maxi) {
+            maxi = root->val;
+            good+=1;
+        }
+        
+        dfs(root->left,maxi);
+        dfs(root->right,maxi);
     }
 };
