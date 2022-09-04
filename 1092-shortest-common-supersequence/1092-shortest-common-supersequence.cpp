@@ -1,47 +1,35 @@
 class Solution {
 public:
     string shortestCommonSupersequence(string str1, string str2) {
-        int m = str1.size() , n = str2.size();
+        int i=0,j=0;
+        string res = "";
+        for(auto c : lca(str1,str2)) {
+            while(str1[i] != c)
+                res += str1[i++];
+            while(str2[j] != c)
+                res += str2[j++];
+            res += c;
+            i++;
+            j++;
+        }
         
-        vector<vector<int>> dp(m+1,vector<int>(n+1,0));
+        return res + str1.substr(i) + str2.substr(j);
+    }
+    
+    string lca(string &s,string &t) {
+        vector<vector<string>> dp(s.length()+1,vector<string>(t.length()+1,""));
         
-        for(int i=1;i<=m;i++) {
-            for(int j=1;j<=n;j++) {
-                if(str1[i-1] == str2[j-1]) dp[i][j] = 1 + dp[i-1][j-1];
-                else dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
+        for(int i=0;i<s.length();i++) {
+            for(int j=0;j<t.length();j++) {
+                if(s[i] == t[j]) {
+                    dp[i+1][j+1] = dp[i][j] + s[i];
+                }else{
+                    dp[i+1][j+1] = dp[i+1][j].size() > dp[i][j+1].size() ? dp[i+1][j] : dp[i][j+1];
+                }
             }
         }
         
-        int i = m,j = n;
-        string s = "";
-        
-        while(i > 0 and j > 0) {
-            
-            if(str1[i-1] == str2[j-1]) {
-                s.push_back(str1[i-1]);
-                i--;
-                j--;
-            }else if(dp[i-1][j] > dp[i][j-1]) {
-                s.push_back(str1[i-1]);
-                i--;
-            }else {
-                s.push_back(str2[j-1]);
-                j--;
-            }
-            
-        }
-        
-        while(i != 0) {
-            s.push_back(str1[i-1]);
-            i--;
-        } 
-        while(j != 0) {
-            s.push_back(str2[j-1]);
-            j--;
-        }
-        
-        reverse(s.begin(),s.end());
-        
-        return s;
+        return dp[s.length()][t.length()];
     }
 };
+
