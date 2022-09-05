@@ -20,21 +20,27 @@ public:
 
 class Solution {
 public:
-    vector<vector<int>> ans;
     vector<vector<int>> levelOrder(Node* root) {
-        dfs(root,0);
-        return ans;
-    }
-    
-    void dfs(Node *root,int level) {
         
-        if(!root) return;
-        if(ans.size() == level) ans.emplace_back();  //need to add new level
-        ans[level].push_back(root->val);
+        if(!root) return {};
         
-        for(auto it : root->children) {
-            dfs(it,level+1);
+        queue<Node*> q;
+        q.push(root);
+        
+        vector<vector<int>> ans;
+        while(!q.empty()) {
+            int size = q.size();
+            vector<int> tmp;
+            for(int i=0;i<size;i++) {
+                Node *curr = q.front(); q.pop();
+                tmp.push_back(curr->val);
+                
+                for(auto it : curr->children) q.push(it);
+            }
+            
+            ans.push_back(tmp);
         }
         
+        return ans;
     }
 };
