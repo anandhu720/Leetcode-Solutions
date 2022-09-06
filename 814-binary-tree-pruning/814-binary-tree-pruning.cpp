@@ -13,14 +13,15 @@ class Solution {
 public:
     TreeNode* pruneTree(TreeNode* root) {
         
+        if(!root) return nullptr;
+        
         if(!root->left and !root->right) {
             if(root->val == 1) return root;
             return nullptr;
         }
         
-        TreeNode *left = nullptr,*right = nullptr;
-        if(root->left) left = pruneTree(root->left);
-        if(root->right) right = pruneTree(root->right);
+        TreeNode *left = pruneTree(root->left);
+        TreeNode *right = pruneTree(root->right);
         
         if(!left) root->left = nullptr;
         if(!right) root->right = nullptr;
