@@ -16,11 +16,11 @@ public:
         
         int sum = 0;
         if(root->val%2 == 0) {
-            if(root->left and (root->left->left or root->left->right)) {
+            if(root->left) {
                 if(root->left->left) sum += root->left->left->val;
                 if(root->left->right) sum += root->left->right->val;
             }
-            if(root->right and (root->right->left or root->right->right)) {
+            if(root->right) {
                 if(root->right->left) sum += root->right->left->val;
                 if(root->right->right) sum += root->right->right->val;
             }            
