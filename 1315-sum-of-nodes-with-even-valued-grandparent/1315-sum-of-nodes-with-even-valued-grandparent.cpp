@@ -12,11 +12,6 @@
 class Solution {
 public:
     int sumEvenGrandparent(TreeNode* root) {
-        return dfs(root);
-    }
-    
-    int dfs(TreeNode *root) {
-        
         if(!root) return 0;
         
         int sum = 0;
@@ -31,6 +26,7 @@ public:
             }            
         }
         
-        return sum + dfs(root->left) + dfs(root->right);
+        return sum + sumEvenGrandparent(root->left) + sumEvenGrandparent(root->right);
     }
+
 };
