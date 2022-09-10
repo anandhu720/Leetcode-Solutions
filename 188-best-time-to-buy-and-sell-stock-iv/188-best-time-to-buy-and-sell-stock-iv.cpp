@@ -1,26 +1,25 @@
 class Solution {
 public:
-    int maxProfit(int time, vector<int>& prices) {
-        vector<vector<int>> prev(2,vector<int>(time+1,0)),curr(2,vector<int>(time+1,0));
+    vector<vector<vector<int>>> dp;
+    int maxProfit(int k, vector<int>& prices) {
+        dp.resize(prices.size()+1,vector<vector<int>>(k+1,vector<int>(2,-1)));
+        return dfs(0,prices,k,true);
+    }
+    int dfs(int i,vector<int> &p,int k,bool canBuy) {
         
-        for(int index=prices.size()-1;index >= 0;index--) {
-            for(int buy=0;buy<2;buy++) {
-                for(int k=1;k <= time;k++) {
-                    
-                    int price = 0;
-                    if(buy == 1) 
-                        price = max(-prices[index] + prev[0][k],prev[1][k]);
-                    else
-                        price = max(prices[index] + prev[1][k-1],prev[0][k]);     
-                    
-                    curr[buy][k] = price;
-                }
-            }
-            prev = curr;
+        if(i == p.size() or k == 0) return 0;
+        
+        if(dp[i][k][canBuy] != -1) return dp[i][k][canBuy];
+        
+        int x = 0,y = 0;
+        if(canBuy) {
+            x = -p[i] + dfs(i+1,p,k,false);
+        }else{
+            x = p[i] + dfs(i+1,p,k-1,true);
         }
         
-        return curr[1][time];
+        y = dfs(i+1,p,k,canBuy);
         
-        
+        return dp[i][k][canBuy] = max(x,y);
     }
 };
