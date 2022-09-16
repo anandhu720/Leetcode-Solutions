@@ -1,23 +1,22 @@
 class Solution {
 public:
-    int solve(int index,int left,int right,vector<int> &nums,vector<int> &mult,vector<vector<int>> &map){
-        int n = nums.size();
-        int m = mult.size();
+    vector<vector<int>> dp;
+    
+    int solve(int i, int n, int j, vector<int> &nums, vector<int> &M){
         
-        //base case
-        if(index >= m) return 0;
+        if (j == M.size()) return 0;
+        if (dp[i][j] != INT_MIN) return dp[i][j];
         
-        if(map[index][left] != -1) return map[index][left];
+        int left = solve(i + 1, n, j + 1, nums, M) + (nums[i] * M[j]);
         
-        int x = mult[index];
+        int right = solve(i, n, j + 1, nums, M) + (nums[(n - 1) - (j - i)] * M[j]);
         
-        map[index][left] = max(x*nums[left]+solve(index+1,left+1,right,nums,mult,map),
-                  x*nums[right]+solve(index+1,left,right-1,nums,mult,map));
-        return map[index][left];
+        return dp[i][j] = max(left, right);
     }
-    int maximumScore(vector<int>& nums, vector<int>& multipliers) {
-        int l = 0,r = nums.size()-1;
-        vector<vector<int>> map(multipliers.size(),vector<int>(multipliers.size(),-1));
-        return solve(0,l,r,nums,multipliers,map);
+    
+    int maximumScore(vector<int>& nums, vector<int>& M) {   
+        int n = nums.size(), m = M.size();
+        dp.resize(m + 1, vector<int>(m + 1, INT_MIN));
+        return solve(0, n, 0, nums, M);
     }
 };
