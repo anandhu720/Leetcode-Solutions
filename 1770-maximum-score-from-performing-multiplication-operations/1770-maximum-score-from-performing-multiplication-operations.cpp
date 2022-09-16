@@ -1,22 +1,27 @@
 class Solution {
 public:
+
     vector<vector<int>> dp;
-    
-    int solve(int i, int n, int j, vector<int> &nums, vector<int> &M){
-        
-        if (j == M.size()) return 0;
-        if (dp[i][j] != INT_MIN) return dp[i][j];
-        
-        int left = solve(i + 1, n, j + 1, nums, M) + (nums[i] * M[j]);
-        
-        int right = solve(i, n, j + 1, nums, M) + (nums[(n - 1) - (j - i)] * M[j]);
-        
-        return dp[i][j] = max(left, right);
+    int maximumScore(vector<int>& nums, vector<int>& multipliers) {
+        dp.resize(multipliers.size()+1,vector<int>(multipliers.size()+1,INT_MIN));
+        return dfs(0,0,nums.size()-1,nums,multipliers);
     }
     
-    int maximumScore(vector<int>& nums, vector<int>& M) {   
-        int n = nums.size(), m = M.size();
-        dp.resize(m + 1, vector<int>(m + 1, INT_MIN));
-        return solve(0, n, 0, nums, M);
+    int dfs(int index,int left,int right,vector<int> &nums,vector<int> &mul) {
+        
+        if(index == mul.size()) return 0;
+        
+        if(dp[index][left] != INT_MIN) return dp[index][left];
+        
+        int addToLeft = 0,addToRight = 0;
+        
+
+        //take left value
+        addToLeft = mul[index] * nums[left] + dfs(index+1,left+1,right,nums,mul);
+        addToRight = mul[index]*nums[right] + dfs(index+1,left,right-1,nums,mul);
+        
+        return dp[index][left] =max(addToLeft,addToRight);
+        
     }
 };
+
