@@ -1,24 +1,27 @@
 class Solution {
 public:
+    vector<vector<int>> dp;
     bool canCross(vector<int>& stones) {
-        int n = stones.size();
-        map<int, int> mp;
-        for(int i=0; i<n; i++){
-            mp[stones[i]] = i;
-        }
-        vector<vector<int>> dp(n+1, vector<int>(n+1, -1));
-        return recur(stones, mp, 0, 0, dp);
+        unordered_map<int,int> umap;
+        for(int i=0;i<stones.size();i++) 
+            umap[stones[i]] = i;
+        dp.resize(stones.size()+1,vector<int>(stones.size()+1,-1));
+        return dfs(0,0,umap,stones);
     }
     
-    bool recur(vector<int>& stones, map<int, int> &mp, int i, int k, vector<vector<int>>& dp){
-        if(i == stones.size()-1) return dp[i][k] = 1;
-        if(dp[i][k] != -1) return dp[i][k];
-        for(int t=k-1; t<=k+1; t++){
-            if(t > 0 && mp.find(stones[i]+t) != mp.end()){
-                int ind = mp[stones[i]+t];
-                if(recur(stones, mp, ind, t, dp)) return dp[i][k] = 1;
+    bool dfs(int index,int k,unordered_map<int,int> &umap,vector<int> &stones) {
+        
+        if(index == stones.size()-1) return true;
+        
+        if(dp[index][k] != -1) return dp[index][k];
+        
+        for(int t=k-1;t<=k+1;t++) {
+            if(t > 0 and umap.find(stones[index] + k) != umap.end()) {
+                int i = umap[stones[index] + k];
+                if(dfs(i,t,umap,stones)) return dp[index][k] = true;
             }
         }
-        return dp[i][k] = 0;
+        
+        return dp[index][k] = false;
     }
 };
