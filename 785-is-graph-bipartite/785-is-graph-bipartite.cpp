@@ -20,24 +20,25 @@ public:
         return true;
     }
     
-    bool bfs(int node,unordered_map<int,vector<int>> &adj,vector<int> &color) {
-        queue<int> q;
-        q.push(node);
-        color[node] = 1;
-        
-        while(!q.empty()) {
-            int tempNode = q.front(); q.pop();
-            
-            for(auto it : adj[tempNode]) {
-                if(color[it] == -1) {
-                    color[it] = 1 - color[tempNode];
-                    q.push(it);
-                }else if(color[tempNode] == color[it]){
-                    return false;
-                }
-            }
-        }
-        
-        return true;
-    }
+   bool bfs(int node,unordered_map<int,vector<int>> &adj,vector<int> &color) {
+       
+       queue<int> q;
+       q.push(node);
+       color[node] = 1;
+       
+       while(!q.empty()) {
+           int curr_node = q.front(); q.pop();
+           
+           for(auto child : adj[curr_node]) {
+               if(color[child] == -1) {
+                   color[child] = 1 - color[curr_node];
+                   q.push(child);
+               }else if (color[curr_node] == color[child]) {
+                   return false;
+               }
+           }
+       }
+       
+       return true;
+   }
 };
