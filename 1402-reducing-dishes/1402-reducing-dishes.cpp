@@ -1,21 +1,20 @@
 class Solution {
 public:
-    vector<vector<int>> dp;
-    int maxSatisfaction(vector<int>& satisfaction) {
-        sort(satisfaction.begin(),satisfaction.end());
-        dp.resize(satisfaction.size(),vector<int>(satisfaction.size()+1,-1));
-        return dfs(0,1,satisfaction);
-    }
-    
-    int dfs(int index,int time,vector<int> &nums) {
+    int maxSatisfaction(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
         
-        if(index == nums.size()) return 0;
-        if(dp[index][time] != -1) return dp[index][time];
+        int sum = 0;
         
-        int take = (nums[index] * time) + dfs(index+1,time+1,nums);
+        int curr = 0;
+        int ans = 0;
+        for(int i=nums.size()-1;i>=0;i--) {
+            
+            curr += sum + nums[i];
+            sum += nums[i];
+            
+            ans = max(ans,curr);
+        }
         
-        int notTake = dfs(index+1,time,nums);
-        
-        return dp[index][time] = max(take,notTake);
+        return ans;
     }
 };
