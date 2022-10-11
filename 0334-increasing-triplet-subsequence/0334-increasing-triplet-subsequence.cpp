@@ -1,11 +1,17 @@
 class Solution {
 public:
+    //LIS T.C. : O(nlongk)
     bool increasingTriplet(vector<int>& nums) {
-        int firstMin = INT_MAX,secondMin = INT_MAX;
+        vector<int> dp;
         for(auto x : nums) {
-            if(x <= firstMin) firstMin = x;
-            else if(x <= secondMin) secondMin = x;
-            else return true;
+            auto it = lower_bound(dp.begin(),dp.end(),x);
+            if(it == end(dp)) {
+                dp.push_back(x);
+                if(dp.size() == 3) return true;
+                continue;
+            }
+            if(*it > x) 
+                *it = x;
         }
         
         return false;
