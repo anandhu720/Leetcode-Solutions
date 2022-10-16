@@ -1,34 +1,38 @@
 class Solution {
 public:
-    vector<long long> x;
-    vector<vector<int>> dp;
-    long long dfs(int index,vector<int> &nums,int k) {
-        
-        if(k == 0) {
-            return x[x.size()-1] - x[index-1];
-        }
-        if(index == nums.size()) return 1e9;
-        
-        if(dp[index][k] != -1) return dp[index][k];
-        
-        long long ans = INT_MAX;
-        long long sum = 0;
-        for(int i=index;i<nums.size();i++) {
-            sum += nums[i];
-            ans = min(ans,max(sum,dfs(i+1,nums,k-1)));
-        }
-        
-        return dp[index][k] = ans;
-    }
     int splitArray(vector<int>& nums, int k) {
-        dp.resize(nums.size(),vector<int>(k,-1));
-        x.resize(nums.size(),0);
-        x[0] = nums[0];
-        for(int i=1;i<nums.size();i++) {
-            x[i] = x[i-1] + nums[i];
+        int left = *max_element(nums.begin(),nums.end());
+        int right = 0;
+        for(auto it : nums) right += it;
+        
+        int ans = right;
+        while(left <= right) {
+            int mid = left + (right - left)/2;
+            
+            if(blackbox(mid,nums,k)) {
+                ans = mid;
+                right = mid-1;
+            }else{
+                left = mid+1;
+            }
         }
         
-        if(k == 1) return x[x.size()-1];
-        return dfs(0,nums,k-1);   
+        return ans;
+    }
+    
+    int blackbox(int mid,vector<int> &nums,int k) {
+        int cnt = 1;
+        int sum = 0;
+        for(int i=0;i<nums.size();i++) {
+            if(nums[i] > mid) return false;
+            if(sum + nums[i] > mid) {
+                cnt++;
+                sum = nums[i];
+            }else{
+                sum += nums[i];
+            }
+        }
+        
+        return cnt <= k;
     }
 };
