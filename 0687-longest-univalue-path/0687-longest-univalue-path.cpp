@@ -1,43 +1,27 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
 class Solution {
 public:
-    int res = 0;
     int longestUnivaluePath(TreeNode* root) {
-        dfs(root);
-        return res == 0 ? res : res-1;
+        int maxi = INT_MIN;
+        if(!root) return 0;
+        dfs(root,maxi);
+        return maxi;
     }
     
-    int dfs(TreeNode *root) {
+    int dfs(TreeNode *root,int &maxi) {  
+        
         if(!root) return 0;
         
-        int left = dfs(root->left);
-        int right = dfs(root->right);
+        int left = dfs(root->left,maxi);
+        int right = dfs(root->right,maxi);
         
-        int ls=0,rs=0;
+        int leftcheck = 0, rightcheck = 0;
+        if(root->left != NULL && root->val == root->left->val) leftcheck = left+1;
+        if(root->right != NULL && root->val == root->right->val) rightcheck = right+1; 
         
-        if(root->left and root->left->val == root->val) {
-            ls = 1+left;
-        }
-        if(root->right and root->right->val == root->val) {
-            rs = 1+right;
-        }
-        if(root->left and root->right and root->left->val == root->right->val) {
-            if(root->val == root->left->val) res = max(res,left+right+1);
-        }
+        maxi = max(maxi,leftcheck+rightcheck);
         
-        res = max(res,max(ls,rs));
+        return max(leftcheck,rightcheck);
         
-        return max(ls,max(rs,1));
         
     }
 };
