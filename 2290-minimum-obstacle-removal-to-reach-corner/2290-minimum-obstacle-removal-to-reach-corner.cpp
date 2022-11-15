@@ -1,40 +1,39 @@
 class Solution {
 public:
-    // vector<int> grad = {0,1,0,-1,0};
+    vector<int> grad = {0,1,0,-1,0};
     int minimumObstacles(vector<vector<int>>& grid) {
- int m=grid.size(), n=grid[0].size();
-        vector<int> dir={0,1,0,-1,0};
-        vector<vector<int>> dist(m, vector<int> (n,INT_MAX));
-        dist[0][0]=0;
-        priority_queue<pair<int,pair<int,int>>, std::vector<pair<int,pair<int,int>>>, std::greater<pair<int,pair<int,int>>> > pq;
-        pq.push({0,{0,0}});
-        while(!pq.empty())
-        {
-            auto v=pq.top();
+        priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>,greater<>> pq;
+        pq.push({0,{0,0}}); // no,r,c
+        vector<vector<int>> dis(grid.size(),vector<int>(grid[0].size(),1e9));
+
+        dis[0][0] = 0;
+
+        while(!pq.empty()) {
+            int val = pq.top().first; int r = pq.top().second.first; int c = pq.top().second.second;
             pq.pop();
-            int i=v.second.first, j=v.second.second, d=v.first;
-            for(int k=0;k<4;k++)
-            {
-                int x=i+dir[k], y=j+dir[k+1];
-                if(x<0 || x>=m || y<0 || y>=n) continue;
-                int wt;
-                if(grid[x][y]==1)
-                {
-                    wt=1;
-                }
-                else
-                {
-                    wt=0;
+            
+
+
+
+            for(int k=0;k<4;k++) {
+                int nr = r + grad[k];
+                int nc = c + grad[k+1];
+
+                if(nr < 0 or nr >= grid.size() or nc < 0 or nc >= grid[0].size())
+                    continue;
+                
+                // if(nr == grid.size()-1 and nc == grid[0].size()-1)
+                //     return val;
+
+                if(val + grid[nr][nc] < dis[nr][nc]) {
+                    dis[nr][nc] = val+grid[nr][nc];
+                    pq.push({val+grid[nr][nc],{nr,nc}});
                 }
                 
-                if(d+wt<dist[x][y])
-                {
-                    dist[x][y]=d+wt;
-                    pq.push({dist[x][y],{x,y}});
-                }
+                
             }
         }
-        return dist[m-1][n-1];  
-    }
 
+        return dis[grid.size()-1][grid[0].size()-1];
+    }
 };
