@@ -1,28 +1,26 @@
 class Solution {
 public:
+    bool dfs(int mid,vector<int> &nums,int th) {
+        int sum = 0;
+        for(auto it : nums) {
+            sum += it/mid;
+            if(it%mid != 0) sum += 1;
+        }
+        return sum <= th;
+    }
     int smallestDivisor(vector<int>& nums, int threshold) {
-         sort(nums.begin(),nums.end());
+        int left = 1,right = 1e6;
         
-        int left = 1,right = nums[nums.size()-1];
-        
-       
-        int ans = -1;
+        int ans = right;
         while(left <= right) {
             int mid = left + (right - left)/2;
-            
-            int sum = 0;
-            for(auto it : nums) {
-                sum += ceil((float)it/mid);
-            }
-            
-            if(sum <= threshold) {
+            if(dfs(mid,nums,threshold)) {
                 ans = mid;
-                right = mid-1;
+                right = mid - 1;
             }else{
-                left = mid+1;
+                left = mid + 1;
             }
         }
-        
         return ans;
     }
 };
