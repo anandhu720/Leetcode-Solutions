@@ -1,33 +1,30 @@
 class Solution {
 public:
-    bool dfs(int mid,vector<int> &nums,int days) {
-        int cnt = 0;
+    bool dfs(int mid,vector<int> &weights,int days) {
+        int cnt = 1;
         int sum = 0;
-        for(int i=0;i<nums.size();i++) {
-            if(nums[i] > mid) return false;
-           if(sum + nums[i] > mid) {
-               cnt++;
-               sum = nums[i];
-           } else{
-               sum += nums[i];
-           }
-            
-        }  
+        for(auto it : weights) {
+            if(sum+it > mid) {
+                sum = it;
+                cnt++;
+            }else{
+                sum += it;
+            }
+        }
         
-        return cnt+1 <= days;
+        return cnt <= days;
     }
-    int shipWithinDays(vector<int>& nums, int days) {
-        int left = 0,right = 0;
-        for(auto it : nums) right += it;
-        left = right/days;
-        if(right%days != 0) left += 1;
+    int shipWithinDays(vector<int>& weights, int days) {
+        int left = *max_element(weights.begin(),weights.end()),right = 0;
+        for(auto it : weights) right += it;
         
         int ans = right;
+        
         while(left <= right) {
             int mid = left + (right - left)/2;
-            if(dfs(mid,nums,days)) {
+            if(dfs(mid,weights,days)) {
                 ans = mid;
-                right = mid -1;
+                right = mid - 1;
             }else{
                 left = mid + 1;
             }
