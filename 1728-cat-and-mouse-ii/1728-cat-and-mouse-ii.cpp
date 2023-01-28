@@ -5,7 +5,7 @@ public:
     int dp[8][8][8][8][1001];
     bool dfs(int cx,int cy,int mx,int my,vector<string> &nums,int move) {        
         
-        if(move > 500) return 0; // cat wins  
+        if(move > 100) return 0; // cat wins  
         
         if(dp[cx][cy][mx][my][move] != -1) return dp[cx][cy][mx][my][move];
         
