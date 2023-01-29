@@ -16,6 +16,6 @@ public:
     }
     int monkeyMove(int n) {
         long long ans = power(2,(long long)n);
-        return (ans - 2) < 0 ? mod+ans-2 : ans-2;
+        return (ans + mod - 2)%mod;
     }
 };
