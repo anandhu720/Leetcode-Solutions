@@ -1,37 +1,43 @@
 class Foo {
-private:
+public:
     mutex m;
     condition_variable cv;
-    int turn;
-public:
+    int flag;
     Foo() {
-        turn = 1;
+        flag = 1;
     }
 
     void first(function<void()> printFirst) {
-        
+        unique_lock<mutex> lock(m);
+        while(flag != 1) {
+            cv.wait(lock);
+        }
         printFirst();
-        turn = 2;
+        flag = 2;
         cv.notify_all();
     }
 
     void second(function<void()> printSecond) {
-        unique_lock<mutex> lock(m); //lock
-        while(turn != 2) {
+        unique_lock<mutex> lock(m);
+        while(flag != 2) {
             cv.wait(lock);
         }
+        
+        // printSecond() outputs "second". Do not change or remove this line.
         printSecond();
-        turn = 3;
+        flag = 3;
         cv.notify_all();
     }
 
     void third(function<void()> printThird) {
+        
+        // printThird() outputs "third". Do not change or remove this line.
         unique_lock<mutex> lock(m);
-        while(turn != 3) {
+        while(flag != 3) {
             cv.wait(lock);
         }
         printThird();
-        turn = 1;
+        flag = 1;
         cv.notify_all();
     }
 };
