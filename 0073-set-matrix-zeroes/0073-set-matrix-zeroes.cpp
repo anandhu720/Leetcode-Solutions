@@ -17,9 +17,8 @@ public:
         
         for(int i=n-1;i>=0;i--) {
             for(int j=m-1;j>=1;j--) {
-                if(matrix[i][0] == 0 or matrix[0][j] == 0) {
+                if(matrix[i][0] == 0 or matrix[0][j] == 0)
                     matrix[i][j] = 0;
-                }
             }
             if(flag == true) matrix[i][0] = 0;
         }
