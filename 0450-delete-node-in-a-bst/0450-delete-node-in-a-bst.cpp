@@ -17,17 +17,16 @@ public:
             else if(key > root->val) root->right = deleteNode(root->right,key);
             else{
                 if(!root->left and !root->right) return NULL;
-                if(!root->left or !root->right) return root->left ? root->left : root->right;
-                
-                TreeNode *tmp = root->left;
-                while(tmp->right) tmp = tmp->right;
-                
-                root->val = tmp->val;
-                
-                root->left = deleteNode(root->left,tmp->val);
+                else if(!root->left or !root->right) return root->left ? root->left : root->right;
+                else {
+                    TreeNode *tmp = root->left;
+                    while(tmp->right) tmp = tmp->right;
+                    int val = root->val;
+                    root->val = tmp->val;
+                    root->left = deleteNode(root->left,root->val);
+                }
             }
         }
-        
         return root;
     }
 };
